@@ -1,6 +1,6 @@
 <?php
 
-    $conexion = mysqli_connect('localhost', 'Dentista', 'dentista1', 'agenda');
+    $conexion = mysqli_connect('localhost:3306', 'Dentista', 'dentista1', 'agenda');
     
     if(!$conexion){
 
