@@ -1,6 +1,6 @@
 <?php
 
-    $conexion = mysqli_connect('nombreservidor o ip', 'usuario', 'password', 'nombrebasededatos');
+    $conexion = mysqli_connect('localhost', 'Dentista', 'dentista1', 'agenda');
     
     if(!$conexion){
 
