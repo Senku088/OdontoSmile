@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendar cita dental</title>
+</head>
+<body>
+  <header>
+    <h1>Agenda tu cita dental en OdontoSmile</h1>
+  </header>
+  <main>
+    <form action="agendar-cita.php" method="post">
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" name="telefono" id="telefono" required>
+      </div>
+      <div class="campo">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" name="correo" id="correo" required>
+      </div>
+      <div class="campo">
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha" id="fecha" required>
+      </div>
+      <div class="campo">
+        <label for="hora">Hora</label>
+        <input type="time" name="hora" id="hora" required>
+      </div>
+      <div class="campo">
+        <label for="dentista">Dentista</label>
+        <select name="dentista" id="dentista">
+          <option value="1">Dr. Juan Pérez</option>
+          <option value="2">Dra. María González</option>
+          <option value="3">Dr. Pedro Hernández</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="tratamiento">Tratamiento</label>
+        <select name="tratamiento" id="tratamiento">
+          <option value="1">Limpieza dental</option>
+          <option value="2">Extracción de muela</option>
+          <option value="3">Endodoncia</option>
+        </select>
+      </div>
+      <div class="botones">
+        <input type="submit" value="Agendar cita">
+        <input type="reset" value="Cancelar">
+      </div>
+    </form>
+  </main>
+  <footer>
+    <p>Copyright © 2023 Clínica Dental</p>
+  </footer>
+</body>
+</html>
