@@ -4,57 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio sesión</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="estilos.css" />
 
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        h1{
-            text-align: center;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-        form{
-            box-shadow: 10px 20px 15px;
-            width: 300px;
-            border: 1px solid lightslategray;
-            margin: 0 auto;
-            padding: 20px;
-        
-        }
-        input{
-    
-            width: 100%;
-            border-radius: 6px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid lightslategray;
-        }
-        input[type="submit"]{ 
-            color: aliceblue;
-            background-color: blue;
-            border: 1px solid lightslategray;
-        }
-        label{
-            display: block;
-        }
-    </style>
 </head>
 <body>
-    <h1>Inicio de Sesión</h1>
-    <form action="conexion.php" method="post" id="formulario">
-        <label for="user">Nombre de usuario:</label>
-        <input type="text" id="user" name="user">
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password">
-        <input type="submit" value="Iniciar Sesión">
-    </form>
+    
+    <div class="divFormSesion">
+        <h1>Inicio de Sesión</h1>
+        <form action="conexion.php" method="post" id="formulario">
+            <label for="user">Nombre de usuario:</label>
+            <input type="text" id="user" name="user">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+
+    <div class="divImagenSesion">
+        <img src="C:\Users\f_dan\Pictures\Screenshots\Captura de pantalla 2023-09-26 234612.png"/>
+    </div>
+    
 
     <!--<script>
         const loginform = document.getElementById("formulario")

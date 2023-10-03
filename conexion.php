@@ -8,18 +8,29 @@
 
     }
 
-    $consulta = "USE agenda";
-    mysqli_query($conexion, $consulta);
-    $consulta = "SELECT * FROM dentista";
-    $resultado = mysqli_query($conexion, $consulta);
+    
 
-    while($file = )
-    echo mysqli_fetch_array($resultado)['id'];
-    echo mysqli_fetch_array($resultado)['nombre'];
-    echo mysqli_fetch_array($resultado)['especialidad'];
-    echo mysqli_fetch_array($resultado)['correo'];
-    echo mysqli_fetch_array($resultado)['telefono'];
+    function insertar($conexion){
+        $nombre = $_POST['nombreRegistroO'];
+        $contrasena = $_POST['contrasenaRegistroO'];
+        $especialidad = $_POST['especialidadRegistroO'];
+        $correo = $_POST['correoRegistroO'];
+        $telefono = $_POST['telefonoRegistroO'];
 
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "INSERT INTO dentista (nombre, Contrasena, especialidad, correo, telefono) VALUES ('$nombre', '$contrasena', '$especialidad', '$correo', '$telefono')";
+        #mysqli_query($conexion, $consulta);
+
+        if ($conexion->query($consulta) === TRUE){
+            echo "Exito";
+        } else {
+            echo "Error" . $conexion->Error;
+        }
+    }
+
+    insertar($conexion);
+    
     mysqli_close($conexion);
 
 ?>

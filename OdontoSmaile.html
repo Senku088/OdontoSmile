@@ -14,51 +14,49 @@
             text-align: center;
         }
         .profile-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 20px auto;
-            background-color: #ccc; /* Color de fondo de la imagen circular */
-            overflow: hidden;
+            
         }
         .profile-image img {
-            max-width: 100%;
-            height: auto;
+            
         }
     </style>
 </head>
 <body>
-    <h1>Registro de Usuario</h1>
-    <form action="conexion.php" method="post" enctype="multipart/form-data">
-        <div class="profile-image">
-            <!-- Aquí puedes mostrar la imagen cargada o una imagen por defecto -->
-            <img src="imagen_por_defecto.jpg" alt="Imagen de perfil">
-        </div>
-        
-        
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
-        
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required><br><br>
 
-        <label for="especialidad">Especialidad:</label>
-        <input type="text" id="especialidad" name="especialidad" required><br><br>
-
-        <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo" name="correo" required><br><br>
+    <div class="divFormRegistroOdonto">
+        <h1>Registro de Dentista</h1>
+        <form action="conexion.php" method="post" enctype="multipart/form-data">
+            <div class="imgOdontoRegistro">
+                <img src="imagen_por_defecto.jpg" alt="Imagen de perfil">
+            </div>
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombreRegistroO" required><br><br>
+            </div>
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="contrasenaRegistroO" required><br><br>
+            </div>
+            <div>
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad" name="especialidadRegistroO" required><br><br>
+            </div>
+            <div>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correoRegistroO" required><br><br>
+            </div>
         
-       
-        <label for="telefono">Teléfono:</label>                         
-        <input type="tel" id="telefono" name="telefono" required>   
-            <select id="lada">
-            <option value="+52">México (+52)</option>
-            <option value="+1">Estados Unidos (+1)</option>
-            <option value="+34">España (+34)</option>
-            <option value="+54">Argentina (+54)</option>
-            </select>
-        <input type="submit" value="Registrarse">
-    </form>
+            <label for="telefono">Teléfono:</label>                         
+            <input type="tel" id="telefono" name="telefonoRegistroO" required>   
+                <select id="lada">
+                    <option value="+52">México (+52)</option>
+                    <option value="+1">Estados Unidos (+1)</option>
+                    <option value="+34">España (+34)</option>
+                    <option value="+54">Argentina (+54)</option>
+                </select>
+            <input type="submit" value="Registrarse" name="botonRegistroO">
+        </form>
+    </div>
 </body>
 </html>
 
