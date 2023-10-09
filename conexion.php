@@ -1,13 +1,16 @@
 <?php
 
+    #Conexion a la base de datos aun en servidor local
     $conexion = mysqli_connect('127.0.0.1:3306', 'root', '', 'agenda');
     
+    #Metodo para matar la conexion en caso de que no se encuentre
     if(!$conexion){
 
         die("Connection failed: ". mysqli_connect_error());
 
     }
 
+    #If's que se ejecutan cuando se presionan ciertos botones
     if(isset($_POST['botonRegistroO'])){
         insertarOdonto($conexion);
     }
@@ -18,6 +21,7 @@
         iniciarSesion($conexion);
     }
 
+    #Declaracion de las funciones para insertar o consultar en la base de datos
     function insertarOdonto($conexion){
         $nombre = $_POST['nombreRegistroO'];
         $contrasena = $_POST['contrasenaRegistroO'];
@@ -36,7 +40,6 @@
             echo "Error" . $conexion->Error;
         }
     }
-
     function insertarPaciente($conexion){
         $nombre = $_POST['nombreRegistroP'];
         $contrasena = $_POST['contrasenaRegistroP'];
@@ -69,12 +72,30 @@
             echo $row['nombre']." ".$row['contrasena']."\n".$nombre." ".$contrasena."\n";
             if($contrasena == $row['contrasena']){
                 $_SESSION['nombre'] = $nombre;
-                header('location: AgendarCita.html');
+                header('location: paginaPrincipalOdonto.html');
             } else {
                 echo "Contraseña incorrecta";
             }
         } else {
-            echo "Usuario no encontrado";
+            
+            if(mysqli_num_rows($resultado) == 1){
+                $consulta = "USE agenda";
+                mysqli_query($conexion, $consulta);
+                $consulta = "SELECT * FROM paciente WHERE nombre='$nombre'";
+
+                if(mysqli_num_rows($resultado) == 1){
+                    $row = mysqli_fetch_assoc($resultado);
+                    echo $row['nombre']." ".$row['contrasena']."\n".$nombre." ".$contrasena."\n";
+                    if($contrasena == $row['contrasena']){
+                        $_SESSION['nombre'] = $nombre;
+                        header('location: paginaPrincipalPaciente.html');
+                    } else {
+                        echo "Contraseña incorrecta";
+                    }
+                }
+            }  else {
+                echo "Error al iniciar sesion";
+            }
         }
 
         /*if ($conexion->query($consulta) === TRUE){
@@ -84,6 +105,7 @@
         }*/
     }
     
+    #Se cierra la conexion con la base de datos
     mysqli_close($conexion);
 
 ?>
