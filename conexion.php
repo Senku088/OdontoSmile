@@ -58,6 +58,7 @@
         }
     }
     function iniciarSesion($conexion){
+
         $nombre = $_POST['userSesion'];
         $contrasena = $_POST['passwordSesion'];
 
@@ -68,45 +69,49 @@
         $resultado = mysqli_query($conexion, $consulta);
 
         if(mysqli_num_rows($resultado) == 1){
+
             $row = mysqli_fetch_assoc($resultado);
-            echo $row['nombre']." ".$row['contrasena']."\n".$nombre." ".$contrasena."\n";
+
             if($contrasena == $row['contrasena']){
+
                 $_SESSION['nombre'] = $nombre;
                 header('location: paginaPrincipalOdonto.html');
+
             } else {
+
                 echo "Contraseña incorrecta";
+
             }
+
         } else {
             
-            echo "Entro al paciente";
             $consulta = "USE agenda";
             mysqli_query($conexion, $consulta);
             $consulta = "SELECT * FROM paciente WHERE nombre='$nombre'";
+
             $resultado = mysqli_query($conexion, $consulta);
 
             if(mysqli_num_rows($resultado) == 1){
 
-                echo "Hace consulta";
-                if(mysqli_num_rows($resultado) == 1){
-                    $row = mysqli_fetch_assoc($resultado);
-                    echo $row['nombre']." ".$row['contrasena']."\n".$nombre." ".$contrasena."\n";
-                    if($contrasena == $row['contrasena']){
-                        $_SESSION['nombre'] = $nombre;
-                        header('location: paginaPrincipalPaciente.html');
-                    } else {
-                        echo "Contraseña incorrecta";
-                    }
+                $row = mysqli_fetch_assoc($resultado);
+
+                if($contrasena == $row['contrasena']){
+
+                    $_SESSION['nombre'] = $nombre;
+                    header('location: paginaPrincipalPaciente.html');
+
+                } else {
+
+                    echo "Contraseña incorrecta";
+
                 }
+
             }  else {
+
                 echo "<script language='javascript'>alert('Error al iniciar sesion');</script>";
+
             }
         }
-
-        /*if ($conexion->query($consulta) === TRUE){
-            echo "Exito";
-        } else {
-            echo "Error" . $conexion->Error;
-        }*/
     }
     
     #Se cierra la conexion con la base de datos
