@@ -78,11 +78,15 @@
             }
         } else {
             
-            if(mysqli_num_rows($resultado) == 1){
-                $consulta = "USE agenda";
-                mysqli_query($conexion, $consulta);
-                $consulta = "SELECT * FROM paciente WHERE nombre='$nombre'";
+            echo "Entro al paciente";
+            $consulta = "USE agenda";
+            mysqli_query($conexion, $consulta);
+            $consulta = "SELECT * FROM paciente WHERE nombre='$nombre'";
+            $resultado = mysqli_query($conexion, $consulta);
 
+            if(mysqli_num_rows($resultado) == 1){
+
+                echo "Hace consulta";
                 if(mysqli_num_rows($resultado) == 1){
                     $row = mysqli_fetch_assoc($resultado);
                     echo $row['nombre']." ".$row['contrasena']."\n".$nombre." ".$contrasena."\n";
@@ -94,7 +98,7 @@
                     }
                 }
             }  else {
-                echo "Error al iniciar sesion";
+                echo "<script language='javascript'>alert('Error al iniciar sesion');</script>";
             }
         }
 
