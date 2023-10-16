@@ -1,2 +1,0 @@
-# OdontoSmile
-trabajo colaborativo 
