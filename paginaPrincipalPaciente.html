@@ -42,50 +42,51 @@
 </head>
 <body>
     <p id="welcome-message">Bienvenido, <span id="user-name"></span></p>
-    <div class="menu-buttons">
-        <a href="registroPaciente.html"><button>Registrar paciente</button></a>
-        <a href="registroOdonto.html"><button>Registrar dentista</button></a>
-    </div>
     <table class="menu-table">
         <tr>
             <td>
-                <ul class="menu">
+                <ul id="icono" class="menu">
                     <li><a href="#"><i class="fa fa-home"></i></a></li>
                 </ul>
             </td>
             <td>
-                <ul class="menu">
+                <ul id="icono" class="menu">
                     <li><a href="#"><i class="fa fa-search"></i></a></li>
                 </ul>
             </td>
             <td>
-                <ul class="menu">
+                <ul id="icono" class="menu">
                     <li><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>
-                <ul class="menu">
+                <ul id="icono" class="menu">
                     <li><a href="#"><i class="fa fa-user"></i></a></li>
                 </ul>
             </td>
             <td>
-                <ul class="menu">
+                <ul id="icono" class="menu">
                     <li><a href="#"><i class="fa fa-cog"></i></a></li>
             </td>
             <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-globe"></i></a></li>
+                <ul id="icono" class="menu">
+                    <li><a href="#"><i class="fa fa-bell"></i></a></li>
                 </ul>
             </td>
         </tr>
     </table>
+
+    <script>
+        var icono = document.getElementById("icono");
+        icono.addEventListener("click", function() {
+            alert("¡Hiciste clic en el icono!");
+        });
+    </script>
     <script>
         
-        var nombreUsuario = "Sommer"; 
-
-        
+        var nombreUsuario = "Sommer";       
         document.getElementById("user-name").textContent = nombreUsuario;
     </script>
 
