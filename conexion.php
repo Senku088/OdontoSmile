@@ -113,6 +113,10 @@
             }
         }
     }
+
+    function insertarTratamiento($conexion){
+        
+    }
     
     #Se cierra la conexion con la base de datos
     mysqli_close($conexion);
