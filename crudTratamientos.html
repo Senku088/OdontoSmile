@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <title>CRUD de Tratamientos Dentales</title>
+</head>
+<body>
+    <div class="divTituloCRUD">
+        <h1>CRUD de Tratamientos Dentales</h1>
+    </div>
+
+    <div class="divAgregarTratamiento">
+        <h2>Agregar Tratamiento</h2>
+        <form>
+            <label for="nombre">Nombre del Tratamiento:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+            <button type="submit">Agregar Tratamiento</button>
+        </form>
+    </div>
+
+    <div class="divMostrarTratamientos">
+        <h2>Lista de Tratamientos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <td>Tratamiento 1</td>
+                    <td>Descripción del Tratamiento 1</td>
+                    <td>
+                        <button onclick="editarTratamiento(1)">Editar</button>
+                        <button onclick="eliminarTratamiento(1)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tratamiento 2</td>
+                    <td>Descripción del Tratamiento 2</td>
+                    <td>
+                        <button onclick="editarTratamiento(2)">Editar</button>
+                        <button onclick="eliminarTratamiento(2)">Eliminar</button>
+                    </td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div>
+        <h2>Editar Tratamiento</h2>
+        <form id="formulario-edicion" style="display: none;">
+            <input type="hidden" id="id-editar" name="id">
+            <label for="nombre-editar">Nombre del Tratamiento:</label>
+            <input type="text" id="nombre-editar" name="nombre" required>
+            <label for="descripcion-editar">Descripción:</label>
+            <textarea id="descripcion-editar" name="descripcion" rows="4" required></textarea>
+            <button type="submit">Guardar Cambios</button>
+            <button type="button" onclick="cancelarEdicion()">Cancelar</button>
+        </form>
+    </div> -->
+
+</body>
+</html>
+

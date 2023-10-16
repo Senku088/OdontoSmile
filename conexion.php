@@ -108,7 +108,7 @@
 
             }  else {
 
-                echo "<script language='javascript'>alert('Error al iniciar sesion');</script>";
+                echo "<script language='javascript'>alert('Error al iniciar sesion');history.back();</script>";
 
             }
         }
