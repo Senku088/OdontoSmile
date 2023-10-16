@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <title>Registro como paciente</title>
+
+</head>
+<body>
+    <div class="divFormRegistroPaciente">
+
+        <h1>Registro de Paciente</h1>
+
+        <form action="conexion.php" method="post" enctype="multipart/form-data" autocomplete="off">
+
+            <div class="imgPacienteRegistro">
+                <img src="/img/perfil-default.jpg" alt="Imagen de perfil">
+            </div>
+
+            <div class="registroPacienteNombre">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombreRegistroP" required><br><br>
+            </div>
+
+            <div class="registroPacienteContrasena">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="contrasenaRegistroP" required><br><br>
+            </div>
+
+            <div class="registroPacienteDireccion">
+                <label for="direccion">Direccion:</label>
+                <input type="text" id="direccion" name="direccionRegistroP" required><br><br>
+            </div>
+
+            <div class="registroPacienteCorreo">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correoRegistroP" required><br><br>
+            </div>
+
+            <div class="registroPacienteTelefono">
+                <label for="telefono">Teléfono:</label>                         
+                <input type="tel" id="telefono" name="telefonoRegistroP" required>
+                    <select id="lada">
+                        <option value="+52">México (+52)</option>
+                        <option value="+1">Estados Unidos (+1)</option>
+                        <option value="+34">España (+34)</option>
+                        <option value="+54">Argentina (+54)</option>
+                    </select>
+            </div>
+
+            <input type="submit" value="Registrarse" name="botonRegistroP" id="botonRegistroP">
+        </form>
+    </div>
+</body>
+</html>
