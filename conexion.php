@@ -20,6 +20,9 @@
     if(isset($_POST['botonInicioSesion'])){
         iniciarSesion($conexion);
     }
+    if(isset($_POST['botonInsertarTratamiento'])){
+        insertarTratamiento($conexion);
+    }
 
     #Declaracion de las funciones para insertar o consultar en la base de datos
     function insertarOdonto($conexion){
@@ -115,7 +118,18 @@
     }
 
     function insertarTratamiento($conexion){
-        $nombre = $_POST['']
+        $nombre = $_POST['nombreTratamiento'];
+        $descripcion = $_POST['descripcionTratamiento'];
+
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "INSERT INTO tratamientos (nombre, descripcion) VALUES ('$nombre', '$descripcion')";
+        
+        if ($conexion->query($consulta) === TRUE){
+            echo "Exito";
+        } else {
+            echo "Error" . $conexion->Error;
+        }
     }
     
     #Se cierra la conexion con la base de datos
