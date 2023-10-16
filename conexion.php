@@ -115,7 +115,7 @@
     }
 
     function insertarTratamiento($conexion){
-        
+        $nombre = $_POST['']
     }
     
     #Se cierra la conexion con la base de datos
