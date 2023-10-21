@@ -38,6 +38,33 @@
             color: #333;
             font-size: 24px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .close {
+            color: #777;
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -47,7 +74,7 @@
         <tr>
             <td>
                 <ul class="menu">
-                    <li><a href="#"><i id="icono" class="fa fa-home"></i></a></li>
+                    <li><a href="javascript:void(0);" onclick="openModal('home')"><i id="icono" class="fa fa-home"></i></a></li>
                 </ul>
             </td>
             <td>
@@ -78,6 +105,16 @@
             </td>
         </tr>
     </table>
+
+    <div id="modal-home" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('home')">&times;</span>
+            <h2>Ícono de inicio</h2>
+            <p>¡Hola! aqui debe ir un inicio</p>
+
+        </div>
+
+    </div>
     <script>
         
         var nombreUsuario = "Dentista"; 
@@ -89,6 +126,16 @@
     icono.addEventListener("click", function() {
         alert("¡Hiciste clic en el icono!");
     });
+</script>
+
+<script>
+    function openModal(iconId){
+        document.getElementById('modal-' + iconId).style.display = 'block';
+    }
+
+    function closeModal(iconId) {
+            document.getElementById('modal-' + iconId).style.display = 'none';
+        }
 </script>
 
 </body>
