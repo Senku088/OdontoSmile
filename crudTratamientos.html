@@ -7,52 +7,71 @@
     <title>CRUD de Tratamientos Dentales</title>
 </head>
 <body>
+
     <div class="divTituloCRUD">
         <h1>CRUD de Tratamientos Dentales</h1>
     </div>
 
-    <div class="divAgregarTratamiento">
-        <h2>Agregar Tratamiento</h2>
+    <div class="divFormAgregarTratamiento">
+
+        <div class="divAgregarTitle">
+            <h2>Agregar Tratamiento</h2>
+        </div>
+
         <form action="conexion.php" method="post" enctype="multipart/form-data" autocomplete="off">
-            <label for="nombre">Nombre del Tratamiento:</label>
-            <input type="text" id="nombreTratamiento" name="nombreTratamiento" required>
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcionTratamiento" rows="4" required></textarea>
-            <button type="submit" name="botonInsertarTratamiento" id="botonInsertarTratamiento">Agregar Tratamiento</button>
+
+            <div class="agregarNombreCRUD">
+                <label for="nombre">Nombre del Tratamiento:</label>
+                <input type="text" id="nombreCRUD" name="nombreCRUD" required>
+            </div>
+
+            <div class="agregarDescripcionCRUD">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcionCRUD" name="descripcioNCRUD" required>
+            </div>
+
+            <input type="submit" value="Agregar Tratamiento" name="botonAgregarTratamiento" id="botonAgregarTratamiento">
+
         </form>
     </div>
 
     <div class="divMostrarTratamientos">
-        <h2>Lista de Tratamientos</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-                <tr>
-                    <td>Tratamiento 1</td>
-                    <td>Descripción del Tratamiento 1</td>
-                    <td>
-                        <button onclick="editarTratamiento(1)">Editar</button>
-                        <button onclick="eliminarTratamiento(1)">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tratamiento 2</td>
-                    <td>Descripción del Tratamiento 2</td>
-                    <td>
-                        <button onclick="editarTratamiento(2)">Editar</button>
-                        <button onclick="eliminarTratamiento(2)">Eliminar</button>
-                    </td>
-                </tr>
-            
-            </tbody>
-        </table>
+
+        <div class="divMostrarTitle">
+            <h2>Lista de Tratamientos</h2>
+        </div>
+
+        <div class="divListaMostrarTratamientos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td>Tratamiento 1</td>
+                        <td>Descripción del Tratamiento 1</td>
+                        <td>
+                            <button onclick="editarTratamiento(1)">Editar</button>
+                            <button onclick="eliminarTratamiento(1)">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tratamiento 2</td>
+                        <td>Descripción del Tratamiento 2</td>
+                        <td>
+                            <button onclick="editarTratamiento(2)">Editar</button>
+                            <button onclick="eliminarTratamiento(2)">Eliminar</button>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- <div>

@@ -14,6 +14,7 @@
 
 body{
     min-height: 100%;
+    width: 100%;
 }
 
 label{
@@ -284,7 +285,7 @@ input[type="password"]{
     width: 420px;
 }
 
-/*Configuracion de la pagina index para iniciar sesion*/
+/*Configuracion de la pagina para iniciar sesion*/
 /*----------------------------------------------------------------------------------------------------------------------------*/
 .divFormSesion{
     position: absolute;
@@ -342,4 +343,87 @@ input[type="password"]{
     width: 50%;
     color: #00ADA6;
     text-shadow:    1px 1px 0 #3f5958;
+}
+
+/*Configuracion de la pagina crud tratamientos*/
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/*Agregar Tratamientos*/
+.divTituloCRUD{
+    padding: 40px;
+    text-align: center;
+    font-size: 20px;
+    height: 90px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    color: #00ADA6;
+    text-shadow:    1px 1px 0 #3f5958;
+}
+
+.divFormAgregarTratamiento{
+    padding: 40px;
+    text-align: left;
+    font-size: 20px;
+    height: 20%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 50%;
+    float: left;
+}
+
+.agregarNombreCRUD{
+    height: 100px;
+    margin: 0 auto;
+    font-size: 18px;
+    width: 70%;
+    text-align: left;
+    color:#006D7C;
+}
+
+.agregarDescripcionCRUD{
+    height: 100px;
+    margin: 0 auto;
+    font-size: 18px;
+    width: 70%;
+    text-align: left;
+    color:#006D7C;
+}
+
+.divAgregarTitle{
+    height: 50px;
+    margin: 0 auto;
+    font-size: 20px;
+    width: 70%;
+    color: #45827f;
+    text-shadow:    1px 1px 0 #364544;
+}
+
+/*Mostrar Tratamientos*/
+.divMostrarTratamientos{
+    padding: 40px;
+    text-align: center;
+    font-size: 20px;
+    height: 20%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 50%;
+    float: left;
+}
+
+.divMostrarTitle{
+    height: 50px;
+    margin: 0 auto;
+    font-size: 20px;
+    width: 70%;
+    color: #45827f;
+    text-shadow:    1px 1px 0 #364544;
+}
+
+.divListaMostrarTratamiento{
+    height: auto;
+    margin: 0 auto;
+    font-size: 18px;
+    padding-bottom: 20px;
+    text-align: left;
+    width: 50%;
+    padding: 10px;
 }
