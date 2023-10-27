@@ -74,33 +74,33 @@
         <tr>
             <td>
                 <ul class="menu">
-                    <li><a href="javascript:void(0);" onclick="openModal('home')"><i id="icono" class="fa fa-home"></i></a></li>
+                    <li><a href="javascript:void(0);" onclick="openModal('home')"><i id="icono-home" class="fa fa-home"></i></a></li>
                 </ul>
             </td>
             <td>
                 <ul class="menu">
-                    <li><a href="#"><i id="icono" class="fa fa-search"></i></a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal('search')"><i id="icono-search" class="fa fa-search"></i></a></li>
                 </ul>
             </td>
             <td>
                 <ul class="menu">
-                    <li><a href="#"><i id="icono" class="fa fa-envelope"></i></a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal('envelope')"><i id="icono-envelope" class="fa fa-envelope"></i></a></li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>
                 <ul class="menu">
-                    <li><a href="#"><i id="icono" class="fa fa-user"></i></a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal('user')"><i id="icono-user" class="fa fa-user"></i></a></li>
                 </ul>
             </td>
             <td>
                 <ul class="menu">
-                    <li><a href="#"><i id="icono" class="fa fa-cog"></i></a></li>
+                    <li><a href="javascrip:void(0)" onclick="openModal('cog')"><i id="icono-cog" class="fa fa-cog"></i></a></li>
             </td>
             <td>
                 <ul class="menu">
-                    <li><a href="#"><i id="icono" class="fa fa-globe"></i></a></li>
+                    <li><a href="javascript:void(0)" onclick="openModal('globe')"><i id="icono-globe" class="fa fa-globe"></i></a></li>
                 </ul>
             </td>
         </tr>
@@ -115,28 +115,73 @@
         </div>
 
     </div>
+
+    <div id="modal-search" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('search')">&times;</span>
+            <h2>Ícono de búsqueda</h2>
+            <p>¡Hola! aquí debe ir una barra de búsqueda </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-envelope" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('envelope')">&times;</span>
+            <h2>Ícono de mensaje</h2>
+            <p>¡Hola! aquí debe ir un buzón de mensajes </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-user" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('user')">&times;</span>
+            <h2>Ícono de Usuario</h2>
+            <p>¡Hola! aquí debe ir una barra de búsqueda </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-cog" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cog')">&times;</span>
+            <h2>Ícono de configuración</h2>
+            <p>¡Hola! aquí debe ir opciones de configuracion </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-globe" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('globe')">&times;</span>
+            <h2>Ícono de notificación</h2>
+            <p>¡Hola! aquí debe ir una lista de notificaciones</p>
+
+        </div>
+
+    </div>
+
+
     <script>
         
         var nombreUsuario = "Dentista"; 
         document.getElementById("user-name").textContent = nombreUsuario;
     </script>
 
-<script>
-    var icono = document.getElementById("icono");
-    icono.addEventListener("click", function() {
-        alert("¡Hiciste clic en el icono!");
-    });
-</script>
-
-<script>
-    function openModal(iconId){
-        document.getElementById('modal-' + iconId).style.display = 'block';
-    }
-
-    function closeModal(iconId) {
-            document.getElementById('modal-' + iconId).style.display = 'none';
+    <script>
+        function openModal(iconId){
+            document.getElementById('modal-' + iconId).style.display = 'block';
         }
-</script>
+
+        function closeModal(iconId) {
+                document.getElementById('modal-' + iconId).style.display = 'none';
+            }
+    </script>
 
 </body>
 </html>
