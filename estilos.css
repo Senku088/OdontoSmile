@@ -9,7 +9,7 @@
     box-sizing: border-box;
     word-wrap: break-word;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 body{
@@ -25,12 +25,17 @@ input{
     width: 40%;
     height: 20%;
     margin: 10px;
-}
-
-input[type="email"]{
     border: 1px solid lightslategray;
     border:dashed;
     border-radius: 5px;
+}
+
+input:focus-visible{
+    border: 3px dashed #FFB644;
+    outline: none;
+}
+
+input[type="email"]{
     font-weight: 800;
     display: block;
     padding-bottom: 20px;
@@ -43,9 +48,6 @@ input[type="email"]{
 }
 
 input[type="tel"]{
-    border: 1px solid lightslategray;
-    border:dashed;
-    border-radius: 5px;
     font-weight: 800;
     display: block;
     padding-bottom: 20px;
@@ -82,9 +84,6 @@ input[type="submit"]{
 }
 
 input[type="text"]{
-    border: 1px solid lightslategray;
-    border:dashed;
-    border-radius: 5px;
     font-weight: 800;
     display: block;
     padding-bottom: 20px;
@@ -97,9 +96,6 @@ input[type="text"]{
 }
 
 input[type="password"]{
-    border: 1px solid lightslategray;
-    border:dashed;
-    border-radius: 5px;
     font-weight: 800;
     display: block;
     padding-bottom: 20px;
@@ -112,7 +108,7 @@ input[type="password"]{
 }
 
 #lada{
-    width: 150px;
+    width: 250px;
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 3px;
@@ -121,6 +117,125 @@ input[type="password"]{
     border-style: dashed;
     border-radius: 5px;
     color:#3f5958;
+    outline: none;
+}
+
+#lada:focus{
+    border: 3px dashed #FFB644;
+}
+
+/*Configuracion de la pagina index de sobre nosotros*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+.menuIndexTop {
+    background-color: #8AFFCC;
+    padding: 10px 0;
+    border: unset;
+    border-radius: 5px;
+    box-shadow: #000000 0px 0px 0px 0px, 
+                #000000 0px 0px 0px 0px, 
+                #181818 0px 2px 2px 0px, 
+                #00ADA6 0px 0px 0px 2px, 
+                #000000 0px 0px 0px 0px, 
+                #000000 0px 0px 0px 0px, 
+                #3f5958 0px 4px 8px 0px;
+    text-align: center;
+    margin: 20px;
+    height: 45px;
+}
+
+.menuIndexTop a {
+    color: #2b3838;
+    text-decoration: none;
+    margin: 40px;
+    font-size: 20px;
+    background-color: #8AFFCC;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 36px;
+    color: #3f5958;
+}
+
+.container p{
+    margin-bottom: 10px;
+    text-align: justify;
+    font-size: 18px;
+    color: #2f3b3b;
+    padding: 10px;
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.map-container{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.map-container iframe{
+    text-align: center;
+    width: 50%;
+    height: 500px;
+    border: 0;
+}
+
+/*Configuracion de la pagin intermedia entre index y registro de paciente y de dentista
+/*----------------------------------------------------------------------------------------------------------------------------*/
+.containerRegistro{
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.containerRegistro h1{
+    margin: 30px;
+    text-align: center;
+    font-size: 36px;
+    color: #3f5958;
+}
+
+.containerRegistro p{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #3d5252;
+    padding: 10px;
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.contenedorBotonesRegistro{
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.botonRegistroRegistro{
+    margin: 30px;
+    font-size: 20px;
+    color:#007c8c;
+    text-decoration: none;
+}
+
+.botonRegistroRegistro:hover{
+    color: #00aec5;
+    border-bottom: 3px dashed;
+}
+
+.botonRegistroRegistro:active{
+    color: #FFB644;
+    border-bottom: 3px dashed;
 }
 
 /*Configuracion de la pagina de registro para dentistas*/
