@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio paciente</title>
+    <title>Inicio Odonto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
@@ -38,51 +38,153 @@
             color: #333;
             font-size: 24px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .close {
+            color: #777;
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <p id="welcome-message">Bienvenido, <span id="user-name"></span></p>
+    <div id="welcome-message">
+        <p>Bienvenido, <span id="user-name"></span></p>
+    </div>
+    
+    <div class="menu-table">
+        <table>
+            <tr>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0);" onclick="openModal('user')"><i id="icono-user" class="fa fa-user"></i></a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('bell')"><i id="icono-bell" class="fa fa-bell"></i></a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('calendar')"><i id="icono-calendar" class="fa fa-calendar"></i></a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('file')"><i id="icono-file" class="fa fa-file-text"></i></a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('cog')"><i id="icono-cog" class="fa fa-cog"></i></a></li>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="logout();"><i id="icono-logout" class="fa fa-sign-out"></i></a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
 
-    <table class="menu-table">
-        <tr>
-            <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-home"></i></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-user"></i></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-medkit"></i></a></li>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="#"><i class="fa fa-file"></i></a></li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+    <div id="modal-user" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('home')">&times;</span>
+            <h2>Ícono de perfil</h2>
+            <p>¡Hola! aqui debe ir informacion del perfil </p>
+        </div>
+
+        
+
+    </div>
+
+    <div id="modal-bell" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bell')">&times;</span>
+            <h2>Ícono de notificaciones</h2>
+            <p>¡Hola! aquí debe ir un historial de notificaciones </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-calendar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('calendar')">&times;</span>
+            <h2>Ícono de citas</h2>
+            <p>¡Hola! aquí debe ir las citas </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-file" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('file')">&times;</span>
+            <h2>Ícono de tratamientos</h2>
+            <p>¡Hola! aquí deben ir los tratamientos </p>
+
+        </div>
+
+    </div>
+
+    <div id="modal-cog" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cog')">&times;</span>
+            <h2>Ícono de configuración</h2>
+            <p>¡Hola! aquí debe ir opciones de configuracion </p>
+
+        </div>
+
+    </div>
+
     <script>
         
-        var nombreUsuario = "Sommer";   
+        var nombreUsuario = "Sommer"; 
         document.getElementById("user-name").textContent = nombreUsuario;
     </script>
+
+    <script>
+        function openModal(iconId){
+            document.getElementById('modal-' + iconId).style.display = 'block';
+        }
+
+        function closeModal(iconId) {
+                document.getElementById('modal-' + iconId).style.display = 'none';
+            }
+    </script>
+
+    <script>
+        function logout(){
+            window.location.href = "index.html";
+        }
+    </script>
+
+
 
 </body>
 </html>

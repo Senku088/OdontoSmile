@@ -68,83 +68,85 @@
     </style>
 </head>
 <body>
-    <p id="welcome-message">Bienvenido, <span id="user-name"></span></p>
+    <div id="welcome-message">
+        <p>Bienvenido, <span id="user-name"></span></p>
+    </div>
+    
+    <div class="menu-table">
+        <table>
+            <tr>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0);" onclick="openModal('user')"><i id="icono-user" class="fa fa-user"></i></a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('bell')"><i id="icono-bell" class="fa fa-bell"></i></a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('calendar')"><i id="icono-calendar" class="fa fa-calendar"></i></a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('file')"><i id="icono-file" class="fa fa-file-text"></i></a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="openModal('cog')"><i id="icono-cog" class="fa fa-cog"></i></a></li>
+                </td>
+                <td>
+                    <ul class="menu">
+                        <li><a href="javascript:void(0)" onclick="logout();"><i id="icono-logout" class="fa fa-sign-out"></i></a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
 
-    <table class="menu-table">
-        <tr>
-            <td>
-                <ul class="menu">
-                    <li><a href="javascript:void(0);" onclick="openModal('home')"><i id="icono-home" class="fa fa-home"></i></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="javascript:void(0)" onclick="openModal('search')"><i id="icono-search" class="fa fa-search"></i></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="javascript:void(0)" onclick="openModal('envelope')"><i id="icono-envelope" class="fa fa-envelope"></i></a></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <ul class="menu">
-                    <li><a href="javascript:void(0)" onclick="openModal('user')"><i id="icono-user" class="fa fa-user"></i></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="javascrip:void(0)" onclick="openModal('cog')"><i id="icono-cog" class="fa fa-cog"></i></a></li>
-            </td>
-            <td>
-                <ul class="menu">
-                    <li><a href="javascript:void(0)" onclick="openModal('globe')"><i id="icono-globe" class="fa fa-globe"></i></a></li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-
-    <div id="modal-home" class="modal">
+    <div id="modal-user" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('home')">&times;</span>
-            <h2>Ícono de inicio</h2>
-            <p>¡Hola! aqui debe ir un inicio</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.4382820278915!2d-96.92569802512!3d19.540580076762733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85db2e0496fa756d%3A0xbe46a8f06177f3a2!2sUniversidad%20Veracruzana%20-%20Facultad%20de%20Econom%C3%ADa%2C%20Geograf%C3%ADa%20y%20Estad%C3%ADstica!5e0!3m2!1ses-419!2smx!4v1697858001890!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <h2>Ícono de perfil</h2>
+            <p>¡Hola! aqui debe ir informacion del perfil </p>
         </div>
 
         
 
     </div>
 
-    <div id="modal-search" class="modal">
+    <div id="modal-bell" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('search')">&times;</span>
-            <h2>Ícono de búsqueda</h2>
-            <p>¡Hola! aquí debe ir una barra de búsqueda </p>
+            <span class="close" onclick="closeModal('bell')">&times;</span>
+            <h2>Ícono de notificaciones</h2>
+            <p>¡Hola! aquí debe ir un historial de notificaciones </p>
 
         </div>
 
     </div>
 
-    <div id="modal-envelope" class="modal">
+    <div id="modal-calendar" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('envelope')">&times;</span>
-            <h2>Ícono de mensaje</h2>
-            <p>¡Hola! aquí debe ir un buzón de mensajes </p>
+            <span class="close" onclick="closeModal('calendar')">&times;</span>
+            <h2>Ícono de citas</h2>
+            <p>¡Hola! aquí debe ir las citas </p>
 
         </div>
 
     </div>
 
-    <div id="modal-user" class="modal">
+    <div id="modal-file" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('user')">&times;</span>
-            <h2>Ícono de Usuario</h2>
-            <p>¡Hola! aquí debe ir una barra de búsqueda </p>
+            <span class="close" onclick="closeModal('file')">&times;</span>
+            <h2>Ícono de tratamientos</h2>
+            <p>¡Hola! aquí deben ir los tratamientos </p>
 
         </div>
 
@@ -159,17 +161,6 @@
         </div>
 
     </div>
-
-    <div id="modal-globe" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('globe')">&times;</span>
-            <h2>Ícono de notificación</h2>
-            <p>¡Hola! aquí debe ir una lista de notificaciones</p>
-
-        </div>
-
-    </div>
-
 
     <script>
         
@@ -186,6 +177,14 @@
                 document.getElementById('modal-' + iconId).style.display = 'none';
             }
     </script>
+
+    <script>
+        function logout(){
+            window.location.href = "index.html";
+        }
+    </script>
+
+
 
 </body>
 </html>
