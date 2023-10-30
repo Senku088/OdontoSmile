@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <title>Tramientos Dentales</title>
+
+</head>
+<body>
+    <div class="divMostrarTratamientos">
+
+        <div class="divMostrarTitle">
+            <h2>Lista de Tratamientos</h2>
+        </div>
+
+        <div class="divListaMostrarTratamientos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td>Tratamiento 1</td>
+                        <td>Descripción del Tratamiento 1</td>
+                        <td>
+                            <button onclick="editarTratamiento(1)">Editar</button>
+                            <button onclick="eliminarTratamiento(1)">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tratamiento 2</td>
+                        <td>Descripción del Tratamiento 2</td>
+                        <td>
+                            <button onclick="editarTratamiento(2)">Editar</button>
+                            <button onclick="eliminarTratamiento(2)">Eliminar</button>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -5,57 +5,21 @@ var usuarios = [];
 var citas = [];
 var tratamientos = [];
 
-// Función para iniciar sesión
-function iniciarSesion() {
-    // Obtener los valores del usuario y contraseña
-    var usuario = document.getElementById("user").value;
-    var password = document.getElementById("password").value;
+function conectarSQL(){
 
-    // Validar que los campos no estén vacíos
-    if (usuario !== "" && password !== "") {
-        // Buscar al usuario en la lista de usuarios
-        var userFound = usuarios.find(function(u) {
-            return u.usuario === usuario && u.password === password;
-        });
+    var sql = require('mysql');
 
-        if (userFound) {
-            // Iniciar sesión con éxito
-            // Redirigir a la página de inicio después de iniciar sesión
-            window.location.href = "paginaPrincipalOdonto.html";
-        } else {
-            alert("Usuario o contraseña incorrectos.");
-        }
-    } else {
-        alert("Por favor, ingresa un usuario y contraseña.");
-    }
-}
+    var con = mysql.createConnection({
+        host: "127.0.0.1:3306",
+        user: "root",
+        password: ""
+      });
+      
+      con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+      });
 
-/*--------------------------------registroOdonto.html y registroPaciente.html------------------------*/
-
-// Función para registrar un nuevo usuario
-function registrarUsuario() {
-    // Obtener los valores de registro (nombre, contraseña, etc.)
-    var nombre = document.getElementById("nombreRegistro").value;
-    var usuario = document.getElementById("userRegistro").value;
-    var password = document.getElementById("passwordRegistro").value;
-
-    // Validar que los campos no estén vacíos
-    if (nombre !== "" && usuario !== "" && password !== "") {
-        // Crear un nuevo objeto de usuario
-        var nuevoUsuario = {
-            nombre: nombre,
-            usuario: usuario,
-            password: password
-        };
-
-        // Agregar el nuevo usuario al array de usuarios
-        usuarios.push(nuevoUsuario);
-
-        // Registrar con éxito
-        alert("Usuario registrado con éxito.");
-    } else {
-        alert("Por favor, completa todos los campos.");
-    }
 }
 
 /*---------------------------------------------AgendarCita.html--------------------------------------*/
@@ -117,3 +81,17 @@ function editarTratamiento(id) {
     }
 }
 
+function mostrarTratamientos(){
+
+    conectarSQL();
+
+    /*var divEencabezado = document.getElementById("encabezadoMostrarTratamientos");
+    var divContenido = document.getElementById("contenidoMostrarTratamientos");
+
+    for(var i=0; i<3; i++){
+        var fila = document.createElement("tr");
+
+        for
+    }*/
+
+}

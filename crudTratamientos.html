@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +11,7 @@
     <title>CRUD de Tratamientos Dentales</title>
 </head>
 <body>
+    <script src="principal.js"></script>
 
     <div class="divTituloCRUD">
         <h1>CRUD de Tratamientos Dentales</h1>
@@ -22,12 +27,12 @@
 
             <div class="agregarNombreCRUD">
                 <label for="nombre">Nombre del Tratamiento:</label>
-                <input type="text" id="nombreCRUD" name="nombreCRUD" required>
+                <input type="text" id="nombreTratamiento" name="nombreTratamiento" required>
             </div>
 
             <div class="agregarDescripcionCRUD">
                 <label for="descripcion">Descripción:</label>
-                <input type="text" id="descripcionCRUD" name="descripcioNCRUD" required>
+                <input type="text" id="descripcionTratamiento" name="descripcionTratamiento" required>
             </div>
 
             <input type="submit" value="Agregar Tratamiento" name="botonAgregarTratamiento" id="botonAgregarTratamiento">
@@ -41,31 +46,35 @@
             <h2>Lista de Tratamientos</h2>
         </div>
 
-        <div class="divListaMostrarTratamientos">
+        <div class="divListaMostrarTratamientos" id="divListaMostrarTratamientos">
+            
+            <input type="submit" value="Actualizar" name="botonMostrarTratamientos" id="botonMostrarTratamientos" onclick="mostrarTratamientos();">
+
             <table>
-                <thead>
+
+                <thead id='encabezadoMostrarTratamientos'>
                     <tr>
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                
+        
+                <tbody id='contenidoMostrarTratamientos'>
                     <tr>
                         <td>Tratamiento 1</td>
                         <td>Descripción del Tratamiento 1</td>
                         <td>
-                            <button onclick="editarTratamiento(1)">Editar</button>
-                            <button onclick="eliminarTratamiento(1)">Eliminar</button>
+                            <button onclick='editarTratamiento(1)'>Editar</button>
+                            <button onclick='eliminarTratamiento(1)'>Eliminar</button>
                         </td>
                     </tr>
                     <tr>
                         <td>Tratamiento 2</td>
                         <td>Descripción del Tratamiento 2</td>
                         <td>
-                            <button onclick="editarTratamiento(2)">Editar</button>
-                            <button onclick="eliminarTratamiento(2)">Eliminar</button>
+                            <button onclick='editarTratamiento(2)'>Editar</button>
+                            <button onclick='eliminarTratamiento(2)'>Eliminar</button>
                         </td>
                     </tr>
                 
@@ -73,20 +82,6 @@
             </table>
         </div>
     </div>
-
-    <!-- <div>
-        <h2>Editar Tratamiento</h2>
-        <form id="formulario-edicion" style="display: none;">
-            <input type="hidden" id="id-editar" name="id">
-            <label for="nombre-editar">Nombre del Tratamiento:</label>
-            <input type="text" id="nombre-editar" name="nombre" required>
-            <label for="descripcion-editar">Descripción:</label>
-            <textarea id="descripcion-editar" name="descripcion" rows="4" required></textarea>
-            <button type="submit">Guardar Cambios</button>
-            <button type="button" onclick="cancelarEdicion()">Cancelar</button>
-        </form>
-    </div> -->
-
 </body>
 </html>
 
