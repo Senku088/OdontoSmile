@@ -49,7 +49,90 @@
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        .modal-content {
+        .fotoPaciente{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .datosPaciente {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .tnotificacionP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .recepcionNotificacionesP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .eliminarNP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tapartarCitasP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .calendarioP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tituloConfiP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .apartadoConfiP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .ttramientosP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .mostrarTramientosP {
             background-color: #fff;
             border: 1px solid #ccc;
             width: 80%;
@@ -78,6 +161,7 @@
                 <td>
                     <ul class="menu">
                         <li><a href="javascript:void(0);" onclick="openModal('user')"><i id="icono-user" class="fa fa-user"></i></a></li>
+                     
                     </ul>
                 </td>
                 <td>
@@ -112,59 +196,190 @@
     
 
     <div id="modal-user" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('home')">&times;</span>
-            <h2>Ícono de perfil</h2>
-            <p>¡Hola! aqui debe ir informacion del perfil </p>
+        <div class="fotoPaciente">
+            <span class="close" onclick="closeModal('user')">&times;</span>
+            <h2>Perfil</h2>
+            <form action="upload_profile_picture.php" method="post" enctype="multipart/form-data">
+                <label for="profile-picture">Foto de perfil:</label>
+                <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                <br>
+                <input type="submit" value="Subir Foto">
+            </form>
+            
+    
+   
+            
         </div>
+
+        <div class="datosPaciente">
+            
+            
+            
+          
+        </div>
+    
+    </div>
+
+
+   
+
+    <div id="modal-bell" class="modal">
+        <div class="tnotificacionP">
+            <span class="close" onclick="closeModal('bell')">&times;</span>
+            <h2>Notificaciones</h2>
+         </div>
+         
+         <div class="recepcionNotificacionesP">
+            
+            
+         </div>
+
+         <div class="eliminarNP">
+            <button type="button" class="eliminar-notificacion">Eliminar</button>
+            
+            
+         </div>
+            
+         </div>
 
         
 
     </div>
 
-    <div id="modal-bell" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('bell')">&times;</span>
-            <h2>Ícono de notificaciones</h2>
-            <p>¡Hola! aquí debe ir un historial de notificaciones </p>
+    <div id="modal-calendar" class="modal">
+        <div class="tapartarCitasP">
+            <span class="close" onclick="closeModal('calendar')">&times;</span>
+            <h2>Apartado de citas</h2>
 
         </div>
-
-    </div>
-
-    <div id="modal-calendar" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('calendar')">&times;</span>
-            <h2>Ícono de citas</h2>
-            <p>¡Hola! aquí debe ir las citas </p>
-
+       
+        <div class="calendarioP">
+            <input type="date" id="fecha" placeholder="Fecha">
+            <form action="/agendar-cita" method="post">
+                <input type="text" name="nombre" placeholder="Nombre del paciente">
+                <input type="email" name="email" placeholder="Correo electrónico">
+                <input type="tel" name="telefono" placeholder="Teléfono">
+                <input type="text" name="motivo" placeholder="Motivo de la cita">
+                <input type="hidden" name="fecha" id="fecha-input">
+                <input type="time" name="hora" placeholder="Hora">
+                <input type="submit" value="Agendar cita">
+              </form>
+            
         </div>
 
     </div>
 
     <div id="modal-file" class="modal">
-        <div class="modal-content">
+        <div class="ttramientosP">
             <span class="close" onclick="closeModal('file')">&times;</span>
-            <h2>Ícono de tratamientos</h2>
-            <p>¡Hola! aquí deben ir los tratamientos </p>
+            <h2>Tratamientos</h2>
+           
+
+        </div>
+
+        <div class="mostrarTramientosP">
+           
+           
+ <table>
+    <thead>
+      <tr>
+        <th>Tipo de tratamiento</th>
+        <th>Duración</th>
+        <th>Costo</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Consulta</td>
+        <td>30 minutos</td>
+        <td>\$50</td>
+        <td>efectivo</td>
+        <td>
+          <a href="#">Ver detalles</a>
+          <a href="#">Cancelar</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Limpieza dental</td>
+        <td>60 minutos</td>
+        <td>\$100</td>
+        <td>tarjeta</td>
+        <td>
+          <a href="#">Ver detalles</a>
+          <a href="#">Cancelar</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Extracción dental</td>
+        <td>90 minutos</td>
+        <td>\$200</td>
+        <td>efectivo</td>
+        <td>
+          <a href="#">Ver detalles</a>
+          <a href="#">Cancelar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+           
 
         </div>
 
     </div>
 
     <div id="modal-cog" class="modal">
-        <div class="modal-content">
+        <div class="tituloConfiP">
             <span class="close" onclick="closeModal('cog')">&times;</span>
-            <h2>Ícono de configuración</h2>
-            <p>¡Hola! aquí debe ir opciones de configuracion </p>
+            <h2>Configuración</h2>
+         
+        </div>
 
+        <div class="apartadoConfiP">
+              
+                <div class="preferencias">
+                  <h3>Preferencias</h3>
+              
+                  <div class="opciones">
+                    <input type="checkbox" name="notificaciones" id="notificaciones" checked>
+                    <label for="notificaciones">Recibir notificaciones por correo electrónico</label>
+                  </div>
+              
+                  <div class="opciones">
+                    <input type="checkbox" name="recordatorios" id="recordatorios" checked>
+                    <label for="recordatorios">Recibir recordatorios de citas</label>
+                  </div>
+              
+                  <div class="opciones">
+                    <input type="checkbox" name="notificaciones_de_tratamiento" id="notificaciones_de_tratamiento" checked>
+                    <label for="notificaciones_de_tratamiento">Recibir notificaciones sobre mi tratamiento</label>
+                  </div>
+                </div>
+              
+                <div class="seguridad">
+                  <h3>Seguridad</h3>
+              
+                  <ul>
+                    <li>
+                      <a href="#">Cambiar contraseña</a>
+                    </li>
+                    <a href="#">Desactivar cuenta</a>
+                  </ul>
+                </div>
+              
+              </div>
+         
         </div>
 
     </div>
 
     <script>
         
-        var nombreUsuario = "Sommer"; 
+        var nombreUsuario = "Paciente"; 
         document.getElementById("user-name").textContent = nombreUsuario;
     </script>
 
