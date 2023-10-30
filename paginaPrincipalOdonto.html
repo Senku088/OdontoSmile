@@ -120,8 +120,8 @@
             padding: 20px;
         }
         .apartadoConfiOdonto {
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background-color: #ccc;
+            border: 1px solid #fff;
             width: 80%;
             max-width: 400px;
             margin: 20px auto;
@@ -136,13 +136,68 @@
             font-weight: bold;
             cursor: pointer;
         }
+
+        .tratamientosOdonto{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .mostrarTramientosO {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .AgregarTratamiento{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px; 
+        }
+
+        #encabezado {
+            background-color: #53bfce;
+            color: #fff;
+            padding: 20px;
+        }
+
+        #foto-usuario {
+            float: left;
+            width: 100px; 
+            height: 100px;
+            border-radius: 50%; 
+            margin-right: 20px;
+        }
+
+        #descripcion-usuario {
+            float: left;
+        }
+
+        #descripcion-usuario h1 {
+            margin-top: 0;
+        }
+
     </style>
 </head>
 <body>
 
 
-    <div id="welcome-message">
-        <p>Bienvenido, <span id="user-name"></span></p>
+    <div id="encabezado">
+        <img id="foto-usuario" src="img/dentista.jpg" alt="Foto del usuario">
+        <div id="welcome-message">
+            <h1>Bienvenido, <span id="user-name"></span></h1>
+            <p>Descripción general del usuario.</p>
+        </div>
+        <div style="clear: both;"></div>
     </div>
     
     <div class="menu-table">
@@ -198,9 +253,9 @@
         </div>
 
         <div class="datosOdonto">
-            
-        </div>
     
+        </div>
+
     </div>
 
     <div id="modal-bell" class="modal">
@@ -279,6 +334,66 @@
             
         </div>
 
+    </div>
+
+
+    <div id="modal-file" class="modal">
+        <div class="tratamientosOdonto">
+            <span class="close" onclick="closeModal('file')">&times;</span>
+            <h2>Tratamientos</h2>        
+        </div>
+
+        <div class="mostrarTramientosO">
+           
+           
+            <table>
+                <thead>
+                <tr>
+                    <th>Tipo de tratamiento</th>
+                    <th>Duración</th>
+                    <th>Costo</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Consulta</td>
+                    <td>30 minutos</td>
+                    <td>\$50</td>
+                    <td>efectivo</td>
+                    <td>
+                    <a href="#">Ver detalles</a>
+                    <a href="#">Cancelar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Limpieza dental</td>
+                    <td>60 minutos</td>
+                    <td>\$100</td>
+                    <td>tarjeta</td>
+                    <td>
+                    <a href="#">Ver detalles</a>
+                    <a href="#">Cancelar</a>
+                    </td>
+                </tr>
+                    <tr>
+                    <td>Extracción dental</td>
+                    <td>90 minutos</td>
+                    <td>\$200</td>
+                    <td>efectivo</td>
+                    <td>
+                    <a href="#">Ver detalles</a>
+                    <a href="#">Cancelar</a>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="AgregarTratamiento">
+            <h2>Agregar o Eliminar tratamiento</h2>
+            <a href="crudTratamientos.html">Agregar tratamiento</a>
+        </div>
     </div>
 
    
