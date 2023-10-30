@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
+
+
+   
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -49,7 +52,7 @@
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        .modal-content {
+        .fotoOdonto{
             background-color: #fff;
             border: 1px solid #ccc;
             width: 80%;
@@ -57,6 +60,74 @@
             margin: 20px auto;
             padding: 20px;
         }
+
+        .datosOdonto {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .tnotificacionO {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .recepcionNotificacionesO {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .eliminarNO {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tapartarCitasO {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .citasOdonto {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .tituloConfiO {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .apartadoConfiOdonto {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+   
 
         .close {
             color: #777;
@@ -68,6 +139,8 @@
     </style>
 </head>
 <body>
+
+
     <div id="welcome-message">
         <p>Bienvenido, <span id="user-name"></span></p>
     </div>
@@ -78,6 +151,7 @@
                 <td>
                     <ul class="menu">
                         <li><a href="javascript:void(0);" onclick="openModal('user')"><i id="icono-user" class="fa fa-user"></i></a></li>
+                     
                     </ul>
                 </td>
                 <td>
@@ -112,52 +186,154 @@
     
 
     <div id="modal-user" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('home')">&times;</span>
-            <h2>Ícono de perfil</h2>
-            <p>¡Hola! aqui debe ir informacion del perfil </p>
+        <div class="fotoOdonto">
+            <span class="close" onclick="closeModal('user')">&times;</span>
+            <h2>Perfil</h2>
+            <form action="upload_profile_picture.php" method="post" enctype="multipart/form-data">
+                <label for="profile-picture">Foto de perfil:</label>
+                <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                <br>
+                <input type="submit" value="Subir Foto">
+            </form>
+            
+    
+   
+            
         </div>
+
+        <div class="datosOdonto">
+            
+            
+            
+          
+        </div>
+    
+    </div>
+
+
+   
+
+    <div id="modal-bell" class="modal">
+        <div class="tnotificacionO">
+            <span class="close" onclick="closeModal('bell')">&times;</span>
+            <h2>Notificaciones</h2>
+         </div>
+         
+         <div class="recepcionNotificacionesO">
+            
+            
+         </div>
+
+         <div class="eliminarNO">
+            <button type="button" class="eliminar-notificacion">Eliminar</button>
+            
+            
+         </div>
+            
+         </div>
 
         
 
     </div>
 
-    <div id="modal-bell" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('bell')">&times;</span>
-            <h2>Ícono de notificaciones</h2>
-            <p>¡Hola! aquí debe ir un historial de notificaciones </p>
-
-        </div>
-
-    </div>
-
     <div id="modal-calendar" class="modal">
-        <div class="modal-content">
+        <div class="tapartarCitasO">
             <span class="close" onclick="closeModal('calendar')">&times;</span>
-            <h2>Ícono de citas</h2>
-            <p>¡Hola! aquí debe ir las citas </p>
+            <h2>Apartado de citas</h2>
 
+        </div>
+       
+        <div class="citasOdonto">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Paciente</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Tipo de tratamiento</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Juan Pérez</td>
+                    <td>2023-10-30</td>
+                    <td>10:00</td>
+                    <td>Consulta</td>
+                    <td>Pendiente</td>
+                    <td>
+                      <a href="#">Aceptar</a>
+                      <a href="#">Cancelar</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>María García</td>
+                    <td>2023-11-05</td>
+                    <td>14:00</td>
+                    <td>Limpieza dental</td>
+                    <td>Pendiente</td>
+                    <td>
+                      <a href="#">Aceptar</a>
+                      <a href="#">Cancelar</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Pedro Rodríguez</td>
+                    <td>2023-11-12</td>
+                    <td>16:00</td>
+                    <td>Extracción dental</td>
+                    <td>Pendiente</td>
+                    <td>
+                      <a href="#">Aceptar</a>
+                      <a href="#">Cancelar</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            
         </div>
 
     </div>
 
-    <div id="modal-file" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('file')">&times;</span>
-            <h2>Ícono de tratamientos</h2>
-            <p>¡Hola! aquí deben ir los tratamientos </p>
-
-        </div>
-
-    </div>
+   
 
     <div id="modal-cog" class="modal">
-        <div class="modal-content">
+        <div class="tituloConfiO">
             <span class="close" onclick="closeModal('cog')">&times;</span>
-            <h2>Ícono de configuración</h2>
-            <p>¡Hola! aquí debe ir opciones de configuracion </p>
+            <h2>Configuración</h2>
+         
+        </div>
 
+        <div class="apartadoConfiOdonto">
+              
+                <div class="preferencias">
+                  <h3>Preferencias</h3>
+              
+                  <div class="opciones">
+                    <input type="checkbox" name="notificaciones" id="notificaciones" checked>
+                    <label for="notificaciones">Recibir notificaciones por correo electrónico</label>
+                  </div>
+              
+                  <div class="opciones">
+                    <input type="checkbox" name="recordatorios" id="recordatorios" checked>
+                    <label for="recordatorios">Recibir recordatorios de citas</label>
+                  </div>
+              
+              
+                <div class="seguridad">
+                  <h3>Seguridad</h3>
+              
+                  <ul>
+                    <li>
+                      <a href="#">Cambiar contraseña</a>
+                    </li>
+                    <a href="#">Desactivar cuenta</a>
+                  </ul>
+                </div>
+              
+              </div>
+         
         </div>
 
     </div>
