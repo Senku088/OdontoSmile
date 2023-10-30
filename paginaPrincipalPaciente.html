@@ -68,7 +68,7 @@
     </style>
 </head>
 <body>
-    <div id="welcome-message">
+    <div class="welcome-message">
         <p>Bienvenido, <span id="user-name"></span></p>
     </div>
     
@@ -155,9 +155,19 @@
     <div id="modal-cog" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('cog')">&times;</span>
-            <h2>Ícono de configuración</h2>
-            <p>¡Hola! aquí debe ir opciones de configuracion </p>
+            <h1>Opciones de Configuración Generales</h1>
 
+            <form action="conexion.php" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"><br><br>
+        
+                <label for="idioma">Idioma:</label>
+                <select id="idioma" name="idioma">
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                    <option value="fr">Francés</option>
+                    <option value="de">Alemán</option>
+                </select><br><br>
         </div>
 
     </div>
