@@ -23,15 +23,6 @@
     if(isset($_POST['botonAgregarTratamiento'])){
         insertarTratamiento($conexion);
     }
-    if(isset($_POST['botonMostrarTratamientos'])){
-        mostrarTratamientos($conexion);
-    }
-
-    $html = new DOMDocument('1.0', 'UTF-8');
-    $titulos = $html->getElementsByTagName('title');
-    foreach($titulos as $titulo){
-        echo $titulo->nodeValue;
-    }
 
     #Declaracion de las funciones para insertar o consultar en la base de datos
     function insertarOdonto($conexion){
@@ -139,10 +130,6 @@
         } else {
             echo "Error" . $conexion->Error;
         }
-    }
-
-    function mostrarTratamientos($conexion){
-
     }
     
     #Se cierra la conexion con la base de datos
