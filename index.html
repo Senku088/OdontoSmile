@@ -12,8 +12,9 @@
         <a href="javascript:location.reload()">Sobre nosotros</a>
         <a href="tratamientos.html">Tratamientos</a>
         <a href="inicioSesion.html">Iniciar sesión</a>
-        <a href="registro.html">Registrarse</a>
+        <a href="#" id ="registroModal">Registrarse</a>
     </div>
+
     <div class="container">
         <h1>Bienvenido a Nuestra Clínica Dental OdontoSmile</h1>
         <p>
@@ -40,10 +41,9 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.4382820278915!2d-96.92569802512!3d19.540580076762733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85db2e0496fa756d%3A0xbe46a8f06177f3a2!2sUniversidad%20Veracruzana%20-%20Facultad%20de%20Econom%C3%ADa%2C%20Geograf%C3%ADa%20y%20Estad%C3%ADstica!5e0!3m2!1ses-419!2smx!4v1697858001890!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         
-        <div id="registroModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('registroModal')">&times;</span>
-                <!-- Contenido del modal para "Registrarse" -->
+        <div id="registro" class="modalRegistro">
+            <div class="modal-registro">
+                <span class="cerrar" id="cerrarModal">&times;</span>
                 <p>Contenido del modal de Registro</p>
             </div>
         </div>
@@ -52,13 +52,27 @@
     </section>
 
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-        }
-    
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
+
+        document.addEventListener('DOMContentLoaded', function ()  {
+            var abrirModal = document.getElementById('registroModal');
+            var cerrarModal = document.getElementById('cerrarModal');
+            var modal = document.getElementById('registro');
+
+            abrirModal.addEventListener('click', function () {
+                modal.style.display = 'block';
+            });
+
+            cerrarModal.addEventListener('click', function (){
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function () {
+                if (event.target === modal){
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
     </script>
 </body>
 </html>
