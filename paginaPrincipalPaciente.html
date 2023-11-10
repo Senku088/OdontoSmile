@@ -137,6 +137,24 @@
             margin: 20px auto;
             padding: 20px;
         }
+        .botonActualizarP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .botonesInteractivosP {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+    
+        
 
         .close {
             color: #777;
@@ -160,6 +178,24 @@
             margin-right: 20px;
         }
 
+        .SeguimientoOdonto{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px; 
+        }
+
+        .verSeguimientos{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px; 
+        }
+
         #descripcion-usuario {
             float: left;
         }
@@ -173,6 +209,9 @@
 
     <div id="encabezadoPerfilPaciente">
         <img id="foto-usuario" src="img/perfil-default.jpg" alt="Foto del usuario">
+        <div>
+            <a href="javascript:void(0)" onclick="logout();"><i id="icono-logout" class="fa fa-sign-out"></i></a>
+        </div>
         <div id="welcome-message">
             <h1>Bienvenido, <span id="user-name"></span></h1>
             <p>Descripción general del usuario.</p>
@@ -208,11 +247,11 @@
                 </td>
                 <td>
                     <ul class="menu">
-                        <li><a href="javascript:void(0)" onclick="openModal('cog')"><i id="icono-cog" class="fa fa-cog"></i></a></li>
+                        <li><a href="javascript:void(0)" onclick="openModal('folder')"><i id="icono-folder" class="fa fa-folder-open"></i></a></li>
                 </td>
                 <td>
                     <ul class="menu">
-                        <li><a href="javascript:void(0)" onclick="logout();"><i id="icono-logout" class="fa fa-sign-out"></i></a></li>
+                        <li><a href="javascript:void(0)" onclick="openModal('cog')"><i id="icono-cog" class="fa fa-cog"></i></a></li>
                     </ul>
                 </td>
             </tr>
@@ -229,12 +268,19 @@
                 <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
                 <br>
                 <input type="submit" value="Subir Foto">
+
+                
             </form>
             
     
    
             
         </div>
+
+        <div class="botonActualizarP">
+            <button type="button" class="Actualizacion">Actualizar</button>
+        
+          </div>
 
         <div class="datosPaciente">
             
@@ -253,17 +299,19 @@
             <span class="close" onclick="closeModal('bell')">&times;</span>
             <h2>Notificaciones</h2>
          </div>
+
+         <div class="botonesInteractivosP">
+            <button type="button" class="Actualizacion">Actualizar</button>
+            <button type="button" class="eliminar-notificacion">Eliminar</button>
+        </div>
          
          <div class="recepcionNotificacionesP">
             
             
          </div>
 
-         <div class="eliminarNP">
-            <button type="button" class="eliminar-notificacion">Eliminar</button>
-            
-            
-         </div>
+         
+         
             
          </div>
 
@@ -277,18 +325,14 @@
             <h2>Apartado de citas</h2>
 
         </div>
+
+        <div class="botonActualizarP">
+            <button type="button" class="Actualizacion">Actualizar</button>
+        
+          </div>
        
         <div class="calendarioP">
-            <input type="date" id="fecha" placeholder="Fecha">
-            <form action="/agendar-cita" method="post">
-                <input type="text" name="nombre" placeholder="Nombre del paciente">
-                <input type="email" name="email" placeholder="Correo electrónico">
-                <input type="tel" name="telefono" placeholder="Teléfono">
-                <input type="text" name="motivo" placeholder="Motivo de la cita">
-                <input type="hidden" name="fecha" id="fecha-input">
-                <input type="time" name="hora" placeholder="Hora">
-                <input type="submit" value="Agendar cita">
-              </form>
+           
             
         </div>
 
@@ -300,48 +344,18 @@
             <h2>Tratamientos</h2>
         </div>
 
+        <div class="botonActualizarP">
+            <button type="button" class="Actualizacion">Actualizar</button>
+        
+          </div>
+
         <div class="mostrarTramientosP">
            
            
             <table>
                 <thead>
                 <tr>
-                    <th>Tipo de tratamiento</th>
-                    <th>Duración</th>
-                    <th>Costo</th>
-                    <th>Opciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Consulta</td>
-                    <td>30 minutos</td>
-                    <td>\$50</td>
-                    <td>efectivo</td>
-                    <td>
-                    <a href="#">Ver detalles</a>
-                    <a href="#">Cancelar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Limpieza dental</td>
-                    <td>60 minutos</td>
-                    <td>\$100</td>
-                    <td>tarjeta</td>
-                    <td>
-                    <a href="#">Ver detalles</a>
-                    <a href="#">Cancelar</a>
-                    </td>
-                </tr>
-                    <tr>
-                    <td>Extracción dental</td>
-                    <td>90 minutos</td>
-                    <td>\$200</td>
-                    <td>efectivo</td>
-                    <td>
-                    <a href="#">Ver detalles</a>
-                    <a href="#">Cancelar</a>
-                    </td>
+                  
                     </tr>
                 </tbody>
             </table>
@@ -353,6 +367,49 @@
         </div>
 
     </div>
+
+    <div id="modal-folder" class="modal">
+        <div class="SeguimientoOdonto">
+            <span class="close" onclick="closeModal('folder')">&times;</span>
+            <h2>Seguimiento Odontologico</h2>
+        </div>
+        
+        <div class="botonActualizarP">
+            <button type="button" class="Actualizacion">Actualizar</button>
+        
+          </div>
+
+        <div class="verSeguimientos">
+            <title>Seguimiento de tratamientos</title>
+  </head>
+   
+  
+
+    <main>
+      <section id="sectionPacientesSeguimiento" class="sectionPacientesSeguimiento">
+        <h2>Pacientes</h2>
+        <ul>
+          <li>
+            <ul>
+              
+            </ul>
+          </li>
+          <li>
+            <ul>
+              
+            </ul>
+          </li>
+        </ul>
+      </section>
+  
+      
+  
+            
+        </div>
+
+      
+    </div>
+
 
     <div id="modal-cog" class="modal">
         <div class="tituloConfiP">
@@ -410,7 +467,7 @@
               
               </div>
          
->>>>>>> 79bf0b8d30f3713e9a988b47a3ba504c3f6ee38a
+
         </div>
 
     </div>
