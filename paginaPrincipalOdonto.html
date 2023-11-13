@@ -214,20 +214,24 @@
     <script>
         var nombreUsuario = "Dentista"; 
         document.getElementById("user-name").textContent = nombreUsuario;
-    </script>
 
-    <script>
         function openModal(iconId){
             document.getElementById('modal-' + iconId).style.display = 'block';
         }
 
         function closeModal(iconId) {
-                document.getElementById('modal-' + iconId).style.display = 'none';
-            }
-    </script>
+            document.getElementById('modal-' + iconId).style.display = 'none';
+        }
 
-    <script>
         function logout(){
+            $.ajax({
+                method: "POST",
+                url: "conexion.php",
+                data: {funcion: "cerrarSesion"}
+            })
+                .done(function(respuesta){
+                    console.log(respuesta);
+                });
             window.location.href = "index.html";
         }
     </script>

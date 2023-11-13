@@ -1,5 +1,5 @@
 <?php
-
+    #Iniciamos la sesion para guardar varibales globales de el perfil/usuario
     session_start();
 
     #Conexion a la base de datos aun en servidor local
@@ -12,7 +12,7 @@
 
     }
 
-    #If's que se ejecutan cuando se presionan ciertos botones
+    #If's que se ejecutan cuando se presionan ciertos botones de los HTML
     if(isset($_POST['botonRegistroO'])){
         insertarOdonto($conexion);
     }
@@ -25,9 +25,14 @@
     if(isset($_POST['botonAgregarTratamiento'])){
         insertarTratamiento($conexion);
     }
+
+    #If de la diferentes funciones que se envian por medio de ajax/javascript
     if(isset($_POST['funcion'])){
         $funcion = $_POST['funcion'];
         switch($funcion){
+            case 'cerrarSesion':
+                cerrarSesion($conexion);
+                break;
             case 'mostrarNotificaciones':
                 mostrarNotificaciones($conexion);
                 break;
@@ -47,41 +52,7 @@
     }
 
     #Declaracion de las funciones para insertar o consultar en la base de datos
-    function insertarOdonto($conexion){
-        $nombre = $_POST['nombreRegistroO'];
-        $contrasena = $_POST['contrasenaRegistroO'];
-        $especialidad = $_POST['especialidadRegistroO'];
-        $correo = $_POST['correoRegistroO'];
-        $telefono = $_POST['telefonoRegistroO'];
-
-        $consulta = "USE agenda";
-        mysqli_query($conexion, $consulta);
-        $consulta = "INSERT INTO dentista (nombre, Contrasena, especialidad, correo, telefono) VALUES ('$nombre', '$contrasena', '$especialidad', '$correo', '$telefono')";
-        #mysqli_query($conexion, $consulta);
-
-        if ($conexion->query($consulta) === TRUE){
-            header('location: inicioSesion.html');
-        } else {
-            echo "Error" . $conexion->Error;
-        }
-    }
-    function insertarPaciente($conexion){
-        $nombre = $_POST['nombreRegistroP'];
-        $contrasena = $_POST['contrasenaRegistroP'];
-        $direccion = $_POST['direccionRegistroP'];
-        $correo = $_POST['correoRegistroP'];
-        $telefono = $_POST['telefonoRegistroP'];
-
-        $consulta = "USE agenda";
-        mysqli_query($conexion, $consulta);
-        $consulta = "INSERT INTO paciente (nombre, contrasena, direccion, correo, telefono) VALUES ('$nombre', '$contrasena', '$direccion', '$correo', '$telefono')";
-
-        if ($conexion->query($consulta) === TRUE){
-            header('location: inicioSesion.html');
-        } else {
-            echo "Error" . $conexion->Error;
-        }
-    }
+    #Funciones de inicio de sesion-------------------------------------------------------
     function iniciarSesion($conexion){
 
         $nombre = $_POST['userSesion'];
@@ -101,6 +72,8 @@
 
                 $_SESSION['nombre'] = $nombre;
                 header('location: paginaPrincipalOdonto.html');
+                $console = $_POST['nombre'];
+                echo ("<script>console.log('Inicio sesion' );</script>");
 
             } else {
 
@@ -138,20 +111,88 @@
             }
         }
     }
-    function insertarTratamiento($conexion){
-        
-        $nombre = $_POST['nombreTratamiento'];
-        $descripcion = $_POST['descripcionTratamiento'];
+    function cerrarSesion($conexion){
+        session_abort();
+        echo "Sesion cerrada";
+    }
+    #Funciones de dentistas--------------------------------------------------------------
+    function insertarOdonto($conexion){
+        $nombre = $_POST['nombreRegistroO'];
+        $contrasena = $_POST['contrasenaRegistroO'];
+        $especialidad = $_POST['especialidadRegistroO'];
+        $correo = $_POST['correoRegistroO'];
+        $telefono = $_POST['telefonoRegistroO'];
 
         $consulta = "USE agenda";
         mysqli_query($conexion, $consulta);
-        $consulta = "INSERT INTO tratamientos (nombre, descripcion) VALUES ('$nombre', '$descripcion')";
-        
+        $consulta = "INSERT INTO dentista (nombre, Contrasena, especialidad, correo, telefono) VALUES ('$nombre', '$contrasena', '$especialidad', '$correo', '$telefono')";
+        #mysqli_query($conexion, $consulta);
+
         if ($conexion->query($consulta) === TRUE){
-            header('location: crudTratamientos.html');
+            header('location: inicioSesion.html');
         } else {
             echo "Error" . $conexion->Error;
         }
+    }
+    #Funciones de pacientes--------------------------------------------------------------
+    function insertarPaciente($conexion){
+        $nombre = $_POST['nombreRegistroP'];
+        $contrasena = $_POST['contrasenaRegistroP'];
+        $direccion = $_POST['direccionRegistroP'];
+        $correo = $_POST['correoRegistroP'];
+        $telefono = $_POST['telefonoRegistroP'];
+
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "INSERT INTO paciente (nombre, contrasena, direccion, correo, telefono) VALUES ('$nombre', '$contrasena', '$direccion', '$correo', '$telefono')";
+
+        if ($conexion->query($consulta) === TRUE){
+            header('location: inicioSesion.html');
+        } else {
+            echo "Error" . $conexion->Error;
+        }
+    }
+    #Funciones de perfil-----------------------------------------------------------------
+    function mostrarPerfil($conexion){
+        $nombreUsuario = $_SESSION['nombre'];
+        echo $nombreUsuario;
+
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "SELECT * FROM dentista WHERE nombre='$nombreUsuario'";
+        $resultado = mysqli_query($conexion, $consulta);
+
+        if(mysqli_num_rows($resultado) == 1){
+
+            while( $row = mysqli_fetch_assoc($resultado)){
+                $new_array[] = $row;
+            }
+            echo json_encode($new_array);
+
+        } else {
+            
+            $consulta = "USE agenda";
+            mysqli_query($conexion, $consulta);
+            $consulta = "SELECT * FROM paciente WHERE nombre='$nombreUsuario'";
+            $resultado = mysqli_query($conexion, $consulta);
+
+            if(mysqli_num_rows($resultado) == 1){
+
+                while( $row = mysqli_fetch_assoc($resultado)){
+                    $new_array[] = $row;
+                }
+                echo json_encode($new_array);
+
+            }  else {
+
+                echo "Que raro, no tienes informacion de tu perfil";
+
+            }
+        }
+    }
+    #Funciones de notificaciones---------------------------------------------------------
+    function insertarNotificaciones($conexion){
+
     }
     function mostrarNotificaciones($conexion){
         $nombreUsuario = $_SESSION['nombre'];
@@ -222,16 +263,34 @@
             }
         }
     }
-    function mostrarPerfil($conexion){
-        $nombreUsuario = $_SESSION['nombre'];
-        echo $nombreUsuario;
+    function eliminarNotificaciones($conexion){
+
+    }
+    #Funciones de tratamientos-----------------------------------------------------------
+    function insertarTratamiento($conexion){
+        
+        $nombre = $_POST['nombreTratamiento'];
+        $descripcion = $_POST['descripcionTratamiento'];
+        $costo = $_POST['costoTratamiento'];
 
         $consulta = "USE agenda";
         mysqli_query($conexion, $consulta);
-        $consulta = "SELECT * FROM dentista WHERE nombre='$nombreUsuario'";
+        $consulta = "INSERT INTO tratamientos (nombre, descripcion, costo) VALUES ('$nombre', '$descripcion', '$costo')";
+        
+        if ($conexion->query($consulta) === TRUE){
+            header('location: crudTratamientos.html');
+        } else {
+            echo "Error" . $conexion->Error;
+        }
+    }
+    function mostrarTratamientos($conexion){
+
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "SELECT * FROM tratamientos";
         $resultado = mysqli_query($conexion, $consulta);
 
-        if(mysqli_num_rows($resultado) == 1){
+        if(mysqli_num_rows($resultado) >= 1){
 
             while( $row = mysqli_fetch_assoc($resultado)){
                 $new_array[] = $row;
@@ -239,25 +298,17 @@
             echo json_encode($new_array);
 
         } else {
-            
-            $consulta = "USE agenda";
-            mysqli_query($conexion, $consulta);
-            $consulta = "SELECT * FROM paciente WHERE nombre='$nombreUsuario'";
-            $resultado = mysqli_query($conexion, $consulta);
 
-            if(mysqli_num_rows($resultado) == 1){
+            echo "No hay tratamientos para mostrar";
 
-                while( $row = mysqli_fetch_assoc($resultado)){
-                    $new_array[] = $row;
-                }
-                echo json_encode($new_array);
-
-            }  else {
-
-                echo "Que raro, no tienes informacion de tu perfil";
-
-            }
         }
+    }
+    function eliminarTratamiento($conexion){
+    
+    }
+    #Funciones de citas------------------------------------------------------------------
+    function insertarCitas($conexion){
+        $datos = $_POST['data'];
     }
     function mostrarCitas($conexion){
         $nombreUsuario = $_SESSION['nombre'];
@@ -328,6 +379,13 @@
             }
         }
     }
+    function eliminarCitas($conexion){
+
+    }
+    #Funciones de seguimiento------------------------------------------------------------
+    function insertarSeguimiento($conexion){
+
+    }
     function mostrarSeguimiento($conexion){
         $nombreUsuario = $_SESSION['nombre'];
 
@@ -397,25 +455,8 @@
             }
         }
     }
-    function mostrarTratamientos($conexion){
+    function eliminarSeguimiento($conexion){
 
-        $consulta = "USE agenda";
-        mysqli_query($conexion, $consulta);
-        $consulta = "SELECT * FROM tratamientos";
-        $resultado = mysqli_query($conexion, $consulta);
-
-        if(mysqli_num_rows($resultado) >= 1){
-
-            while( $row = mysqli_fetch_assoc($resultado)){
-                $new_array[] = $row;
-            }
-            echo json_encode($new_array);
-
-        } else {
-
-            echo "No hay tratamientos para mostrar";
-
-        }
     }
 
     #Se cierra la conexion con la base de datos

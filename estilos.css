@@ -509,6 +509,15 @@ input[type="password"]:invalid{
     color:#006D7C;
 }
 
+.agregarCostoCRUD{
+    height: 100px;
+    margin: 0 auto;
+    font-size: 18px;
+    width: 70%;
+    text-align: left;
+    color:#006D7C;
+}
+
 .divAgregarTitle{
     height: 50px;
     margin: 0 auto;
@@ -762,5 +771,115 @@ input[type="password"]:invalid{
     height: 100px;
     border-radius: 50%; 
     margin-right: 20px;
+}
+
+/*Configuracion de la pagina principal Odonto*/
+/*-------------------------------------------------------------------------------------------------------------------------*/
+.datosPaciente {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tnotificacionP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.recepcionNotificacionesP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.eliminarNP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tapartarCitasP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.calendarioP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tituloConfiP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.apartadoConfiP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.ttramientosP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.mostrarTramientosP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.botonActualizarP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.botonesInteractivosP {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
