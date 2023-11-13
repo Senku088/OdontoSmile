@@ -11,7 +11,7 @@
     <title>CRUD de Tratamientos Dentales</title>
 </head>
 <body>
-    <script src="principal.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <div class="divTituloCRUD">
         <h1>CRUD de Tratamientos Dentales</h1>
@@ -47,10 +47,7 @@
         </div>
 
         <div class="divListaMostrarTratamientos" id="divListaMostrarTratamientos">
-            
-            <input type="submit" value="Actualizar" name="botonMostrarTratamientos" id="botonMostrarTratamientos">
-
-            <table>
+            <!--<table>
 
                 <thead id='encabezadoMostrarTratamientos'>
                     <tr>
@@ -79,7 +76,17 @@
                     </tr>
                 
                 </tbody>
-            </table>
+            </table>-->
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarTratamientos"}
+                })
+                .done(function(respuesta){
+                    $("div.divListaMostrarTratamientos").html(respuesta);
+                });
+            </script>
         </div>
     </div>
 </body>

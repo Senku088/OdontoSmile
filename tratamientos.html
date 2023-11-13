@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <div class="divMostrarTratamientos">
 
         <div class="divMostrarTitle">
@@ -18,7 +18,7 @@
 
         <div class="divListaMostrarTratamientos">
 
-            <table>
+            <!--<table>
 
                 <thead id="encabezadoMostrarTratamientos">
                     <tr>
@@ -47,7 +47,17 @@
                     </tr>
                 
                 </tbody>
-            </table>
+            </table>-->
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarTratamientos"}
+                })
+                .done(function(respuesta){
+                    $("div.divListaMostrarTratamientos").html(respuesta);
+                });
+            </script>
         </div>
     </div>
 </body>

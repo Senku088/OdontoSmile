@@ -5,202 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Odonto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-
-
-   
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .menu-buttons {
-            margin-bottom: 20px;
-        }
-
-        .menu-table {
-            text-align: center;
-        }
-
-        .menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .menu li {
-            display: inline;
-            margin: 20px;
-        }
-
-        .menu li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 24px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .fotoOdonto{
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .datosOdonto {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .tnotificacionO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .recepcionNotificacionesO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .botonesInteractivosO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .botonActualizarO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .tapartarCitasO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .citasOdonto {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .tituloConfiO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .apartadoConfiOdonto {
-            background-color: #ccc;
-            border: 1px solid #fff;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .close {
-            color: #777;
-            float: right;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .tratamientosOdonto{
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .mostrarTramientosO {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .AgregarTratamiento{
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px; 
-        }
-        .SeguimientoOdonto{
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px; 
-        }
-
-        .verSeguimientos{
-            background-color: #fff;
-            border: 1px solid #ccc;
-            width: 80%;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px; 
-        }
-
-        #foto-usuario {
-            float: left;
-            width: 100px; 
-            height: 100px;
-            border-radius: 50%; 
-            margin-right: 20px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-
-   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <div class="encabezadoPerfilOdonto">
         <img id="foto-usuario" src="img/dentista.jpg" alt="Foto del usuario" class="fotoUsuario">
         <div class="botonCerrarSesion">
@@ -210,10 +18,6 @@
             <h1>Bienvenido, <span id="user-name"></span></h1>
             <p>Descripción general del usuario.</p>
         </div>
-    
-    
-      
-
     </div>
     
     <div class="menuTablaOdonto">
@@ -255,7 +59,6 @@
         </table>
     </div>
     
-
     <div id="modal-user" class="modal">
         <div class="fotoOdonto">
             <span class="close" onclick="closeModal('user')">&times;</span>
@@ -265,40 +68,41 @@
                 <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
                 <br>
                 <input type="submit" value="Subir Foto">
-                
             </form>
         </div>
-        <div class="botonActualizarO">
-            <button type="button" class="Actualizacion">Actualizar</button>
-    
+
+        <div class="perfilOdonto">
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarPerfil"}
+                })
+                .done(function(respuesta){
+                    $("div.perfilOdonto").html(respuesta);
+                });
+            </script>
         </div>
-
-        <div class="datosOdonto">
-    
-        </div>
-
-       
-
     </div>
 
     <div id="modal-bell" class="modal">
         <div class="tnotificacionO">
             <span class="close" onclick="closeModal('bell')">&times;</span>
             <h2>Notificaciones</h2>
-        
-        </div>
-
-        <div class="botonesInteractivosO">
-            <button type="button" class="Actualizacion">Actualizar</button>
-            <button type="button" class="eliminar-notificacion">Eliminar</button>
         </div>
          
         <div class="recepcionNotificacionesO">
-            
-            
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarNotificaciones"}
+                })
+                .done(function(respuesta){
+                    $("div.recepcionNotificacionesO").html(respuesta);
+                });
+            </script>
         </div>
-
-      
     </div>
 
     <div id="modal-calendar" class="modal">
@@ -307,117 +111,105 @@
             <h2>Apartado de citas</h2>
 
         </div>
-        <div class="botonActualizarO">
-            <button type="button" class="Actualizacion">Actualizar</button>
-    
-        </div>
+
         <div class="citasOdonto">
-            <table>
+            <!--<table>
                 <thead>
                   <tr>
                  
                   </tr>
                 </tbody>
-              </table>
-            
+            </table>-->
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarCitas"}
+                })
+                .done(function(respuesta){
+                    $("div.citasOdonto").html(respuesta);
+                });
+            </script>            
         </div>
 
     </div>
-
 
     <div id="modal-file" class="modal">
         <div class="tratamientosOdonto">
             <a href="crudTratamientos.html">Agregar tratamiento</a>
-                 
         </div>
-
-
-      
     </div>
 
-  
-  
     <div id="modal-folder" class="modal">
         <div class="SeguimientoOdonto">
             <span class="close" onclick="closeModal('folder')">&times;</span>
             <h2>Seguimiento Odontologico</h2>
         </div>
-        
-        <div class="botonActualizarO">
-            <button type="button" class="Actualizacion">Actualizar</button>
-        
-          </div>
 
         <div class="verSeguimientos">
             <title>Seguimiento de tratamientos</title>
-  </head>
-   
-  
-
-    <main>
-      <section id="sectionPacientesSeguimiento" class="sectionPacientesSeguimiento">
-        <h2>Pacientes</h2>
-        <ul>
-          <li>
-            <ul>
-              
-            </ul>
-          </li>
-          <li>
-            <ul>
-              
-            </ul>
-          </li>
-        </ul>
-      </section>
-  
-      
-  
-            
+            <!--<main>
+                <section id="sectionPacientesSeguimiento" class="sectionPacientesSeguimiento">
+                    <h2>Pacientes</h2>
+                    <ul>
+                        <li>
+                            <ul>
+                    
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                    
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </main>-->
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarSeguimiento"}
+                })
+                .done(function(respuesta){
+                    $("div.verSeguimientos").html(respuesta);
+                });
+            </script>  
         </div>
-
-      
     </div>
 
     <div id="modal-cog" class="modal">
         <div class="tituloConfiO">
             <span class="close" onclick="closeModal('cog')">&times;</span>
             <h2>Configuración</h2>
-         
         </div>
 
         <div class="apartadoConfiOdonto">
+            <div class="preferencias">
+                <h3>Preferencias</h3>
               
-                <div class="preferencias">
-                  <h3>Preferencias</h3>
-              
-                  <div class="opciones">
+                <div class="opciones">
                     <input type="checkbox" name="notificaciones" id="notificaciones" checked>
-                    <label for="notificaciones">Recibir notificaciones por correo electrónico</label>
-                  </div>
+                    <label for="notificaciones">Recibir notificaciones por correo electrónico</label>                    </div>
               
-                  <div class="opciones">
-                    <input type="checkbox" name="recordatorios" id="recordatorios" checked>
-                    <label for="recordatorios">Recibir recordatorios de citas</label>
-                  </div>
-              
-              
-                <div class="seguridad">
-                  <h3>Seguridad</h3>
-              
-                  <ul>
-                    <li>
-                      <a href="#">Cambiar contraseña</a>
-                    </li>
-                    <a href="#">Desactivar cuenta</a>
-                  </ul>
-                </div>
-              
-              </div>
-         
-        </div>
+                    <div class="opciones">
+                        <input type="checkbox" name="recordatorios" id="recordatorios" checked>
+                        <label for="recordatorios">Recibir recordatorios de citas</label>
+                    </div>
 
-    </div>
+                    <div class="seguridad">
+                        <h3>Seguridad</h3>
+
+                        <ul>
+                            <li>
+                                <a href="#">Cambiar contraseña</a>
+                            </li>
+                            <a href="#">Desactivar cuenta</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <script>
         var nombreUsuario = "Dentista"; 
@@ -439,9 +231,5 @@
             window.location.href = "index.html";
         }
     </script>
-
-
-
 </body>
 </html>
-

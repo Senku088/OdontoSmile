@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Odonto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="estilos.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -206,7 +207,7 @@
     </style>
 </head>
 <body>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <div id="encabezadoPerfilPaciente">
         <img id="foto-usuario" src="img/perfil-default.jpg" alt="Foto del usuario">
         <div>
@@ -258,7 +259,6 @@
         </table>
     </div>
     
-
     <div id="modal-user" class="modal">
         <div class="fotoPaciente">
             <span class="close" onclick="closeModal('user')">&times;</span>
@@ -268,74 +268,61 @@
                 <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
                 <br>
                 <input type="submit" value="Subir Foto">
-
-                
             </form>
-            
-    
-   
-            
         </div>
-
-        <div class="botonActualizarP">
-            <button type="button" class="Actualizacion">Actualizar</button>
-        
-          </div>
 
         <div class="datosPaciente">
-            
-            
-            
-          
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarPerfil"}
+                })
+                .done(function(respuesta){
+                    $("div.datosPaciente").html(respuesta);
+                });
+            </script>
         </div>
-    
     </div>
-
-
-   
 
     <div id="modal-bell" class="modal">
         <div class="tnotificacionP">
             <span class="close" onclick="closeModal('bell')">&times;</span>
             <h2>Notificaciones</h2>
-         </div>
-
-         <div class="botonesInteractivosP">
-            <button type="button" class="Actualizacion">Actualizar</button>
-            <button type="button" class="eliminar-notificacion">Eliminar</button>
         </div>
          
-         <div class="recepcionNotificacionesP">
-            
-            
-         </div>
-
-         
-         
-            
-         </div>
-
-        
-
-    </div>
+        <div class="recepcionNotificacionesP">
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarNotificaciones"}
+                })
+                .done(function(respuesta){
+                    $("div.recepcionNotificacionesP").html(respuesta);
+                });
+            </script>
+        </div> 
+     </div>
 
     <div id="modal-calendar" class="modal">
         <div class="tapartarCitasP">
             <span class="close" onclick="closeModal('calendar')">&times;</span>
             <h2>Apartado de citas</h2>
-
         </div>
-
-        <div class="botonActualizarP">
-            <button type="button" class="Actualizacion">Actualizar</button>
-        
-          </div>
        
         <div class="calendarioP">
-           
-            
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarCitas"}
+                })
+                .done(function(respuesta){
+                    $("div.calendarioP").html(respuesta);
+                });
+            </script>
         </div>
-
     </div>
 
     <div id="modal-file" class="modal">
@@ -344,28 +331,25 @@
             <h2>Tratamientos</h2>
         </div>
 
-        <div class="botonActualizarP">
-            <button type="button" class="Actualizacion">Actualizar</button>
-        
-          </div>
-
         <div class="mostrarTramientosP">
-           
-           
-            <table>
+            <!--<table>
                 <thead>
                 <tr>
                   
                     </tr>
                 </tbody>
-            </table>
+            </table>-->
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarTratamientos"}
+                })
+                .done(function(respuesta){
+                    $("div.mostrarTramientosP").html(respuesta);
+                });
+            </script>
         </div>
-
-</div>
-           
-
-        </div>
-
     </div>
 
     <div id="modal-folder" class="modal">
@@ -373,43 +357,38 @@
             <span class="close" onclick="closeModal('folder')">&times;</span>
             <h2>Seguimiento Odontologico</h2>
         </div>
-        
-        <div class="botonActualizarP">
-            <button type="button" class="Actualizacion">Actualizar</button>
-        
-          </div>
 
         <div class="verSeguimientos">
             <title>Seguimiento de tratamientos</title>
-  </head>
-   
-  
-
-    <main>
-      <section id="sectionPacientesSeguimiento" class="sectionPacientesSeguimiento">
-        <h2>Pacientes</h2>
-        <ul>
-          <li>
-            <ul>
-              
-            </ul>
-          </li>
-          <li>
-            <ul>
-              
-            </ul>
-          </li>
-        </ul>
-      </section>
-  
-      
-  
-            
+            <!--<main>
+                <section id="sectionPacientesSeguimiento" class="sectionPacientesSeguimiento">
+                    <h2>Pacientes</h2>
+                    <ul>
+                        <li>
+                            <ul>
+                    
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                    
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </main>-->
+            <script>
+                $.ajax({
+                    method: "POST",
+                    url: "conexion.php",
+                    data: {funcion: "mostrarSeguimiento"}
+                })
+                .done(function(respuesta){
+                    $("div.verSeguimientos").html(respuesta);
+                });
+            </script> 
         </div>
-
-      
     </div>
-
 
     <div id="modal-cog" class="modal">
         <div class="tituloConfiP">
@@ -464,16 +443,11 @@
                     <a href="#">Desactivar cuenta</a>
                   </ul>
                 </div>
-              
               </div>
-         
-
         </div>
-
     </div>
 
     <script>
-        
         var nombreUsuario = "Paciente"; 
         document.getElementById("user-name").textContent = nombreUsuario;
     </script>
@@ -493,9 +467,5 @@
             window.location.href = "index.html";
         }
     </script>
-
-
-
 </body>
 </html>
-
