@@ -13,6 +13,71 @@
 
         <h1>Registro de Paciente</h1>
 
+        <button class="botonAccesibilidad" id="buttonAccesibilidad">
+            <img src="/img/accesibilidad-01.png" alt="accesibilidad">
+        </button>
+        
+        <div id="panelAccesibilidad" class="panelAccesibilidad">
+            <ul class="listaAccesibilidad">
+                <li>
+                    <button onclick="invertColors()">
+                        <img src="/img/color-invertido.svg" alt="">
+                    </button>
+                    <span>Invertir colores</span>
+                </li>
+                <li>
+                    <button onclick="applyFilter('grayscale(100%)')">
+                        <img src="/img/monocromatico.png" alt="">
+                    </button>
+                    <span>monocromo</span>
+                </li>
+                <li>
+                    <button onclick="applyFilter('contrast(200%)')">
+                        <img src="/img/alto-contraste.png" alt="">    
+                    </button>
+                    <span>Contraste oscuro</span>
+                </li>
+                <li>
+                    <button onclick="applyFilter('contrast(50%)')">
+                        <img src="/img/contraste-claro.svg" alt="">
+                    </button>
+                    <span>Contraste claro</span>
+                </li>
+                <li>
+                    <button onclick="applyFilter('saturate(20%)')">
+                        <img src="/img/baja-saturacion.png" alt="">
+                    </button>
+                    <span>Baja saturación</span>
+                </li>
+                <li>
+                    <button onclick="applyFilter('saturate(200%)')">
+                        <img src="/img/alta-saturacion.png" alt="">
+                    </button>
+                    <span>Alta saturación</span>
+                </li>
+                <!-- <li>
+                    <button onclick="enableScreenReader()">
+                        <img src="/img/voz.png" alt="">
+                    </button>
+                    <span>Lector de pantalla</span>
+                </li>
+                <li>
+                    <button onclick="toggleReadMode()">
+                        <img src="/img/modo-de-lectura.png" alt="">
+                    </button>
+                    <span>Modo lectura</span>
+                </li> -->
+                <li>
+                    <input id="font-size-range" type="range" min="10" max="30" step="1" value="16" oninput="changeFontSize(this.value)">
+                    <label for="font-size-range">Tamaño de fuente</label>
+                </li>
+                <li>
+                    <input id="letter-spacing-range" type="range" min="0" max="10" step="1" value="0" oninput="changeLetterSpacing(this.value)">
+                    <label for="letter-spacing-range">Espaciado de letras</label>
+                </li>
+            </ul>  
+        </div>
+
         <form action="conexion.php" method="post" enctype="multipart/form-data" autocomplete="off">
 
             <div class="imgPacienteRegistro">
@@ -53,5 +118,54 @@
             <input type="submit" value="Registrarse" name="botonRegistroP" id="botonRegistroP">
         </form>
     </div>
+
+    <script>
+        document.getElementById('buttonAccesibilidad').addEventListener('click', function() {
+    var accessibilityPanel = document.querySelector('.panelAccesibilidad');
+    accessibilityPanel.style.display = (accessibilityPanel.style.display === 'block') ? 'none' : 'block';
+    });
+
+    function invertColors() {
+    document.body.style.filter = "invert(100%)";
+    }
+
+    function applyFilter(filter) {
+    document.body.style.filter = filter;
+    }
+
+    function enableScreenReader() {
+    var screenReaderStatus = document.body.getAttribute('aria-live');
+
+        if(screenReaderStatus === 'assertive') {
+                document.body.setAttribute('aria-live', 'off');
+                alert('Lector de pantalla desactivado.');
+        } else {
+            document.body.setAttribute('aria-live', 'assertive');
+            alert('Lector de pantalla activado. Puedes comenzar a utilizar tu lector de pantalla ahora.');
+        }
+    }
+
+    function toggleReadMode() {
+    var body = document.body;
+    body.classList.toggle('read-mode');
+
+    }
+
+    function changeFontSize(size) {
+        document.body.style.fontSize = size;
+    }
+
+    function changeLetterSpacing(spacing) {
+        document.body.style.letterSpacing = spacing;
+    }
+
+    function changeFontSize(value) {
+        document.body.style.fontSize = value + 'px';
+    }
+
+    function changeLetterSpacing(value) {
+        document.body.style.letterSpacing = value + 'px';
+    }
+    </script>
 </body>
 </html>
