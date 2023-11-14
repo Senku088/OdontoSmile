@@ -25,6 +25,12 @@
     if(isset($_POST['botonAgregarTratamiento'])){
         insertarTratamiento($conexion);
     }
+    if(isset($_POST['botonAgendarCita'])){
+        insertarCitas($conexion);
+    }
+    if(isset($_POST['botonSubirFotos'])){
+        subirFoto($conexion);
+    }
 
     #If de la diferentes funciones que se envian por medio de ajax/javascript
     if(isset($_POST['funcion'])){
@@ -126,7 +132,6 @@
         $consulta = "USE agenda";
         mysqli_query($conexion, $consulta);
         $consulta = "INSERT INTO dentista (nombre, Contrasena, especialidad, correo, telefono) VALUES ('$nombre', '$contrasena', '$especialidad', '$correo', '$telefono')";
-        #mysqli_query($conexion, $consulta);
 
         if ($conexion->query($consulta) === TRUE){
             header('location: inicioSesion.html');
@@ -304,11 +309,62 @@
         }
     }
     function eliminarTratamiento($conexion){
-    
+        
     }
     #Funciones de citas------------------------------------------------------------------
     function insertarCitas($conexion){
-        $datos = $_POST['data'];
+        $nombreP = $_POST['nombreP'];
+        $nombreO = $_POST['nombreO'];
+        $descripcion = $_POST['descripcion'];
+        $fecha = $_POST['fecha'];
+        $hora = $_POST['hora'];
+
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "SELECT * FROM paciente WHERE nombre='$nombreP'";
+        $resultado = mysqli_query($conexion, $consulta);
+
+        if(mysqli_num_rows($resultado) >= 1){
+
+            $row = mysqli_fetch_assoc($resultado);
+            $idPaciente = $row['idPaciente'];
+
+            $consulta = "USE agenda";
+            mysqli_query($conexion, $consulta);
+            $consulta = "SELECT * FROM dentista WHERE nombre='$nombreO'";
+            $resultado = mysqli_query($conexion, $consulta);
+
+            if(mysqli_num_rows($resultado) == 1){
+
+                $row = mysqli_fetch_assoc($resultado);
+                $idDentista = $row['idDentista'];
+
+                $consulta = "USE agenda";
+                mysqli_query($conexion, $consulta);
+                $consulta = "INSERT INTO citas (idDentista, idPaciente, fecha, hora, descripcion) VALUES ('$idDentista', '$idPaciente', '$fecha', '$hora', '$descripcion')";
+
+                if ($conexion->query($consulta) === TRUE){
+
+                    echo "notificacionPush();";
+                    header('location: paginaPrincipalPaciente.html');
+
+                } else {
+
+                    echo "Error" . $conexion->Error;
+
+                }
+
+            } else {
+
+                echo "Error" . $conexion->Error;
+
+            }
+
+        } else {
+
+            echo "Error" . $conexion->Error;
+
+        }
     }
     function mostrarCitas($conexion){
         $nombreUsuario = $_SESSION['nombre'];
@@ -457,6 +513,26 @@
     }
     function eliminarSeguimiento($conexion){
 
+    }
+
+    #Funcion para subir foto-------------------------------------------------------------
+    function subirFoto($conexion){
+        $foto = $_POST['profile-picture'];
+        $nombreUsuario = $_SESSION['nombre'];
+
+        $consulta = "USE agenda";
+        mysqli_query($conexion, $consulta);
+        $consulta = "SELECT * FROM dentista WHERE nombre='$nombreUsuario'";
+        $resultado = mysqli_query($conexion, $consulta);
+
+        if(mysqli_num_rows($resultado) == 1){
+
+            $row = mysqli_fetch_assoc($resultado);
+            $idUsuario = $row['idPaciente'];
+
+
+
+        }
     }
 
     #Se cierra la conexion con la base de datos

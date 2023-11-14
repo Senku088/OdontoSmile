@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="estilos.css" />
 </head>
-<body>
+<body class="bodyPrincipal">
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <div id="encabezadoPerfilPaciente">
-        <img id="foto-usuario" src="img/perfil-default.jpg" alt="Foto del usuario" class="fotoUsuario">
-        <div class="divCerrarSesion">
-            <a href="javascript:void(0)" onclick="logout();"><i id="icono-logout" class="fa fa-sign-out"></i></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+
+    <div class="encabezadoPerfilPaciente">
+        <div class="imagenPerfilDiv">
+            <img id="foto-usuario" src="img/perfil-default.jpg" alt="Foto del usuario" class="fotoUsuario1">
         </div>
-        <div id="welcome-message">
+        <div id="welcome-message" class="bienvenido">
             <h1>Bienvenido, <span id="user-name"></span></h1>
             <p>Descripción general del usuario.</p>
+        </div>
+        <div class="divCerrarSesion">
+            <a href="javascript:void(0)" onclick="logout();"><i id="icono-logout" class="fa fa-sign-out"></i></a>
         </div>
         <div style="clear: both;"></div>
     </div>
@@ -63,12 +68,12 @@
     <div id="modal-user" class="modal">
         <div class="fotoUsuario">
             <span class="close" onclick="closeModal('user')">&times;</span>
-            <h2>Perfil</h2>
-            <form action="upload_profile_picture.php" method="post" enctype="multipart/form-data">
-                <label for="profile-picture">Foto de perfil:</label>
+            <h1>Perfil</h1>
+            <form action="conexion.php" method="post" enctype="multipart/form-data">
+                <label for="profile-picture" class="labelFotoPerfil">Foto de perfil:</label>
                 <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
                 <br>
-                <input type="submit" value="Subir Foto">
+                <input type="submit" value="Subir Foto" class="botonSubirFotos" name="botonSubirFotos">
             </form>
         </div>
 
@@ -89,7 +94,7 @@
     <div id="modal-bell" class="modal">
         <div class="tnotificacionP">
             <span class="close" onclick="closeModal('bell')">&times;</span>
-            <h2>Notificaciones</h2>
+            <h1>Notificaciones</h1>
         </div>
          
         <div class="recepcionNotificacionesP">
@@ -109,7 +114,38 @@
     <div id="modal-calendar" class="modal">
         <div class="tapartarCitasP">
             <span class="close" onclick="closeModal('calendar')">&times;</span>
-            <h2>Apartado de citas</h2>
+            <h1>Apartado de citas</h1>
+        </div>
+
+        <div class="divFormCitas">
+
+            <h1>Agendar Cita</h1>
+            
+            <form action="conexion.php" method="post" enctype="multipart/form-data">
+
+                <div class="formCitasNombreP">
+                    <input type="text" name="nombreP" placeholder="Nombre del paciente">
+                </div>
+
+                <div class="formCitasNombreO">
+                    <input type="text" name="nombreO" placeholder="Nombre del dentista">
+                </div>
+
+                <div class="formCitasDescripcion">
+                    <input type="text" name="descripcion" placeholder="Descripcion de la cita">
+                </div>
+
+                <div class="formCitasFecha">
+                    <input type="date" name="fecha" placeholder="Fecha">
+                </div>
+
+                <div class="formCitasHora">
+                    <input type="time" name="hora" placeholder="Hora">
+                </div>
+
+                <input type="submit" value="Agendar cita" id="botonAgendarCita" name="botonAgendarCita">
+
+            </form>
         </div>
        
         <div class="calendarioP">
@@ -129,7 +165,7 @@
     <div id="modal-file" class="modal">
         <div class="ttramientosP">
             <span class="close" onclick="closeModal('file')">&times;</span>
-            <h2>Tratamientos</h2>
+            <h1>Tratamientos</h1>
         </div>
 
         <div class="mostrarTramientosP">
@@ -156,7 +192,7 @@
     <div id="modal-folder" class="modal">
         <div class="SeguimientoOdonto">
             <span class="close" onclick="closeModal('folder')">&times;</span>
-            <h2>Seguimiento Odontologico</h2>
+            <h1>Seguimiento Odontologico</h1>
         </div>
 
         <div class="verSeguimientos">
@@ -271,6 +307,21 @@
                     console.log(respuesta);
                 });
             window.location.href = "index.html";
+        }
+
+        function notificacionPush(idDentista){
+            console.log(idDentista);
+            Push.Permission.request();
+            Push.create('Notificacion nueva', {
+                body: 'Tienes una nueva cita agendada. Da click para verla :)',
+                icon: 'img/dentista.jpg',
+                timeout: 1500000,
+                vibrate: [100, 100, 100],
+                onClick: function(idDentista){
+                    window.location = "index.html";
+                    console.log(idDentista + " Eres bienvenido");
+                }
+            })
         }
     </script>
 
