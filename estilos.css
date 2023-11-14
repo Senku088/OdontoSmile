@@ -952,17 +952,64 @@ input[type="file"]{
     width: 100%;
 }
 
-.buttonAccOdonto{
-    width: 10px;
-    height: 10px;
-    background: transparent;
+.botonAccesibilidad{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: none;
     border: none;
-    display: block;
-    height: 48px;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    transition: all .2 ease;
+    cursor: pointer;
+}
 
+.botonAccesibilidad img {
+    width: 40px;
+}
+
+.panelAccesibilidad{
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.panelAccesibilidad button{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.panelAccesibilidad button img {
+    width: 30px; /* Ajusta el tamaño según tus necesidades */
+}
+
+.panelAccesibilidad span {
+    display: block;
+    text-align: center;
+}
+
+.listaAccesibilidad{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+.listaAccesibilidad{
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+.listaAccesibilidad label{
+    display: block;
+    margin-bottom: 5px;
 }
