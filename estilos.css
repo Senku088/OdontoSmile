@@ -951,3 +951,18 @@ input[type="file"]{
     display: inline-flex;
     width: 100%;
 }
+
+.buttonAccOdonto{
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border: none;
+    display: block;
+    height: 48px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: all .2 ease;
+
+}

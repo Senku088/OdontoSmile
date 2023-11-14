@@ -19,6 +19,28 @@
             <p>Descripción general del usuario.</p>
         </div>
     </div>
+
+    <button class="buttonAccOdonto">
+        <img src="/img/accesibilidad-01.png" alt="accesibilidad">
+    </button>
+
+    <div id="accessibility-button" class="accessibility-button">
+        A
+        <div class="accessibility-options">
+            <button onclick="invertColors()">Invertir colores</button>
+            <button onclick="applyFilter('grayscale(100%)')">Monocromo</button>
+            <button onclick="applyFilter('contrast(200%)')">Contraste oscuro</button>
+            <button onclick="applyFilter('contrast(50%)')">Contraste claro</button>
+            <button onclick="applyFilter('saturate(20%)')">Baja saturación</button>
+            <button onclick="applyFilter('saturate(200%)')">Alta saturación</button>
+            <button onclick="enableScreenReader()">Lector de pantalla</button>
+            <button onclick="toggleReadMode()">Modo lectura</button>
+            <button onclick="changeFontSize('1.2em')">Aumentar tamaño de fuente</button>
+            <button onclick="changeFontSize('1em')">Restaurar tamaño de fuente</button>
+            <button onclick="changeLetterSpacing('2px')">Aumentar espaciado de letras</button>
+            <button onclick="changeLetterSpacing('normal')">Restaurar espaciado de letras</button>
+        </div>
+    </div>
     
     <div class="menuTablaOdonto">
         <table>
